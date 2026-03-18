@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Menu, X, Leaf, Mail, Phone, Clock, Facebook, Instagram, Twitter, Linkedin } from "lucide-react"
+import { Menu, X, Leaf, Mail, Phone } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { businessConfig } from "@/lib/config"
 
@@ -26,130 +26,88 @@ export function Header({ onOpenModal }: { onOpenModal: () => void }) {
   }, [])
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50">
-      {/* Top Bar - Switched to White/70 for contrast on Orange */}
+    <header className="fixed top-0 left-0 right-0 z-[100]">
+      {/* 1. TOP BAR: Disappears on scroll to focus on 'Spartan' minimalism */}
       <div
         className={cn(
-          "border-b border-white/10 bg-white/5 backdrop-blur-sm transition-all duration-300",
+          "border-b border-white/5 bg-black/5 backdrop-blur-sm transition-all duration-500",
           isScrolled ? "max-h-0 overflow-hidden opacity-0 border-b-0" : "max-h-12 opacity-100"
         )}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-2">
           <div className="flex items-center gap-6">
-            <a
-              href={`mailto:${businessConfig.email}`}
-              className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-white/70 transition-colors hover:text-white"
-            >
+            <a href={`mailto:${businessConfig.email}`} className="flex items-center gap-1.5 text-[9px] font-black uppercase tracking-[0.2em] text-white/60 hover:text-white transition-colors">
               <Mail className="h-3 w-3" />
               <span className="hidden sm:inline">{businessConfig.email}</span>
             </a>
-            <a
-              href={`tel:${businessConfig.phone.replace(/\s/g, "")}`}
-              className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-white/70 transition-colors hover:text-white"
-            >
+            <a href={`tel:${businessConfig.phone}`} className="flex items-center gap-1.5 text-[9px] font-black uppercase tracking-[0.2em] text-white/60 hover:text-white transition-colors">
               <Phone className="h-3 w-3" />
               <span className="hidden sm:inline">{businessConfig.phoneDisplay}</span>
             </a>
           </div>
-          <div className="flex items-center gap-3">
-            {[
-              { icon: Facebook, label: "Facebook", href: "#" },
-              { icon: Instagram, label: "Instagram", href: "#" },
-              { icon: Twitter, label: "Twitter", href: "#" },
-              { icon: Linkedin, label: "LinkedIn", href: "#" },
-            ].map((social) => (
-              <a
-                key={social.label}
-                href={social.href}
-                aria-label={social.label}
-                className="text-white transition-colors hover:text-white"
-              >
-                <social.icon className="h-3 w-3" />
-              </a>
-            ))}
-          </div>
         </div>
       </div>
 
-      {/* Main Navigation Bar */}
-      <div className="px-4 py-3">
+      {/* 2. MAIN NAVIGATION: The 'Glass' Floating Pill */}
+      <div className={cn("px-4 transition-all duration-500", isScrolled ? "py-2" : "py-4")}>
         <div
           className={cn(
-            "mx-auto max-w-6xl rounded-full px-8 py-3 transition-all duration-300 border border-white/20",
-            /* Solid White Glass background on scroll to prevent text bleed */
+            "mx-auto max-w-6xl rounded-full px-8 py-3 transition-all duration-500 border",
             isScrolled
-              ? "bg-white/10 backdrop-blur-2xl shadow-2xl py-2"
-              : "bg-white/5 backdrop-blur-md"
+              ? "bg-white/10 backdrop-blur-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] border-white/20 py-2.5"
+              : "bg-white/5 backdrop-blur-md border-white/10"
           )}
         >
           <div className="flex items-center justify-between">
-            {/* Logo - White/Bold for Spartan look */}
+            {/* LOGO */}
             <a href="#" className="flex items-center gap-2 group">
-              <Leaf className="h-6 w-6 text-white transition-all duration-300 group-hover:rotate-12" />
-              <span className="text-xl font-black tracking-tighter text-white uppercase">
+              <Leaf className="h-5 w-5 text-white transition-transform duration-500 group-hover:rotate-12" />
+              <span className="text-lg font-black tracking-tighter text-white uppercase italic">
                 Veridian
               </span>
             </a>
 
-            {/* Desktop Navigation - Forced White for visibility */}
-            <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-10 md:flex">
+            {/* NAV LINKS */}
+            <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 lg:flex">
               {navLinks.map((link) => (
                 <a
-                  key={link.href}
+                  key={link.label}
                   href={link.href}
-                  className="text-[11px] font-black uppercase tracking-[0.2em] text-white/80 transition-colors duration-200 hover:text-white"
+                  className="text-[10px] font-black uppercase tracking-[0.25em] text-white/70 hover:text-white transition-all duration-300 relative group"
                 >
                   {link.label}
+                  <span className="absolute -bottom-1 left-0 h-[1px] w-0 bg-white transition-all duration-300 group-hover:w-full" />
                 </a>
               ))}
             </nav>
 
-            {/* Spartan CTA Button */}
+            {/* CTA BUTTON */}
             <div className="hidden md:block">
               <button
                 onClick={onOpenModal}
-                className="rounded-full bg-white px-7 py-2.5 text-[10px] font-black uppercase tracking-[0.2em] text-[#da6d42] transition-all duration-300 hover:bg-white/90 hover:shadow-xl hover:-translate-y-0.5"
+                className="rounded-full bg-white px-6 py-2 text-[9px] font-black uppercase tracking-[0.2em] text-[#da6d42] transition-all duration-500 hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.4)]"
               >
-                Get a Quote
+                Request Access
               </button>
             </div>
 
-            {/* Mobile Toggle */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="flex h-10 w-10 items-center justify-center rounded-full text-white transition-colors hover:bg-white/10 md:hidden"
-            >
+            {/* MOBILE TOGGLE */}
+            <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="md:hidden text-white">
               {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Navigation - Glass with White Text */}
-      <div
-        className={cn(
-          "overflow-hidden transition-all duration-300 md:hidden",
-          isMobileMenuOpen ? "max-h-96" : "max-h-0"
-        )}
-      >
-        <nav className="mx-4 flex flex-col gap-1 rounded-3xl bg-white/10 backdrop-blur-2xl p-4 shadow-2xl border border-white/20">
+      {/* 3. MOBILE MENU: Vertical Glass Overlay */}
+      <div className={cn("overflow-hidden transition-all duration-500 md:hidden px-4", isMobileMenuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0")}>
+        <nav className="flex flex-col gap-2 rounded-3xl bg-black/20 backdrop-blur-3xl p-6 border border-white/10 shadow-2xl">
           {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="rounded-xl px-4 py-3 text-xs font-black uppercase tracking-[0.2em] text-white transition-colors duration-200 hover:bg-white/10"
-            >
+            <a key={link.label} href={link.href} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-3 text-[10px] font-black uppercase tracking-[0.2em] text-white/80 hover:text-white hover:bg-white/5 rounded-xl transition-all">
               {link.label}
             </a>
           ))}
-          <button
-            onClick={() => {
-              setIsMobileMenuOpen(false)
-              onOpenModal()
-            }}
-            className="mt-2 rounded-full bg-white px-5 py-4 text-xs font-black uppercase tracking-[0.2em] text-[#da6d42]"
-          >
+          <button onClick={() => { setIsMobileMenuOpen(false); onOpenModal(); }} className="mt-4 rounded-full bg-white py-4 text-[10px] font-black uppercase tracking-[0.2em] text-[#da6d42]">
             Get a Quote
           </button>
         </nav>
