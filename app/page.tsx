@@ -26,7 +26,7 @@ export default function VeridianLandingPage() {
       <main className="bg-[#da6d42]">
 
         {/* 1. HERO: ORANGE */}
-        <section className="relative z-0 bg-[#da6d42] -mt-10 " >
+        <section className="relative z-0 bg-[#da6d42] pb-24 lg:pb-0 -mt-10 " >
           <HeroSection onOpenModal={openModal} />
         </section>
 
@@ -41,14 +41,14 @@ export default function VeridianLandingPage() {
         {/* 3. STATS: ORANGE 
             - Tighter vertical padding for a cleaner transition
         */}
-        <section className="relative z-0 bg-[#da6d42] py-12 lg:py-12 lg:pt-0 pb-16 lg:pb-20">
+        <section className="relative z-0 bg-[#da6d42] py-12 lg:py-12 lg:pt-0 pb-0 lg:pb-20">
           <StatsSection />
         </section>
 
         {/* 4. CASE STUDIES: GREEN 
             - Pulls up into the Stats section with -mt
         */}
-        <section className="relative z-10 bg-[#50C878] -mt-16 lg:-mt-20 py-12 lg:py-20 -mt-[1px]">
+        <section className="relative z-10 bg-[#50C878] -mt-16 lg:-mt-20 py-12 lg:py-20 pb-24 lg:pb-0 -mt-[1px]">
           <CaseStudySection />
         </section>
 
@@ -58,7 +58,7 @@ export default function VeridianLandingPage() {
         </section>
 
         {/* 6. FAQ: GREEN */}
-        <section className="relative z-10 bg-[#50C878] -mt-16 lg:-mt-20 pt-12 lg:pt-20 pb-24 lg:pb-40 -mt-[1px]">
+        <section className="relative z-10 bg-[#50C878] -mt-16 lg:-mt-20 pt-12 lg:pt-0 pb-24 lg:pb-0 -mt-[1px]">
           <FaqSection />
         </section>
 
