@@ -19,32 +19,32 @@ export default function VeridianLandingPage() {
 
   return (
     <>
-      <section className="relative z-10 bg-[#50C878] -mt-16 lg:-mt-20 pt-12 lg:pt-20 pb-20 lg:pb-30 -mt-[1px]">        <Header onOpenModal={openModal} />
+      <section className="relative z-10 bg-[#50C878] -mt-5 lg:-mt-20 pt-12 lg:pt-20 pb-20 lg:pb-30 -mt-[1px]">
+        <Header onOpenModal={openModal} />
       </section>
 
 
       <main className="bg-[#da6d42]">
 
         {/* 1. HERO: ORANGE */}
-        <section className="relative z-0 bg-[#da6d42] pt-24 pb-32 lg:pt-1 lg:pb-20">
+        <section className="relative z-0 bg-[#da6d42] pt-2 pb-3 lg:pt-1 lg:pb-20">
           <HeroSection onOpenModal={openModal} />
         </section>
 
         {/* 2. SERVICES: GREEN */}
-        {/* FIX 1: -mt-[180px] pulls the green section up aggressively.
-  FIX 2: pt-0 ensures the green background starts IMMEDIATELY behind the card.
-  FIX 3: -mt-[1px] is removed to prevent syntax clashing.
-*/}
-        <section className="relative z-10 bg-[#50C878] -mt-[180px] lg:-mt-32 pt-0 lg:pt-40 pb-16 lg:pb-0">
-          <div className="pt-20 lg:pt-0"> {/* This gives internal room for the card */}
+        {/* REDUCED: Changed pt-20 to pt-0 on mobile. The div handles the top spacing. */}
+        {/* REDUCED: Changed pb-1 to pb-0 to eliminate the bottom green 'tail' */}
+        <section className="relative z-10 bg-[#50C878] -mt-[180px] lg:-mt-32 pt-30 lg:pt-40 pb-0 lg:pb-0">
+          <div className="pt-10 lg:pt-0"> {/* Adjusted to 10 for a tighter Spartan look */}
             <OverlappingCards />
             <ServicesSection onOpenModal={openModal} />
           </div>
         </section>
 
         {/* 3. STATS: ORANGE */}
-        {/* CHANGED: Dropped pb-10 to pb-0 on mobile to remove the orange tail */}
-        <section className="relative z-0 bg-[#da6d42] pt-1 pb-0 lg:pt-16 lg:pb-16 -mt-16 lg:-mt-18">
+        {/* CHANGED: Increased -mt-16 to -mt-32 on mobile to 'swallow' the remaining green gap */}
+        {/* CHANGED: pt-12 gives the Stat Cards room to breathe once they slide up */}
+        <section className="relative z-0 bg-[#da6d42] -mt-32 lg:-mt-18 pt-12 pb-0 lg:pt-16 lg:pb-16">
           <StatsSection />
         </section>
 
