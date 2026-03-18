@@ -99,7 +99,7 @@ export function OverlappingCards() {
             )}
             style={{ transitionDelay: `${index * 100}ms` }}
           >
-            <div className="flex h-16 w-16 items-center justify-center rounded-2x2 bg-white/10 border border-white/50 shadow-inner mb-2">
+            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 border border-white/50 shadow-inner mb-2">
               <card.icon className="h-7 w-7 text-white" />
             </div>
             <h3 className="text-lg font-bold text-white uppercase tracking-tighter">{card.title}</h3>
