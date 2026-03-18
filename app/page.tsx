@@ -13,8 +13,6 @@ import { CtaModal } from "@/components/cta/cta-modal"
 import { Footer } from "@/components/layout/footer"
 import { BackToTop } from "@/components/layout/back-to-top"
 
-// This is now the ONLY default export. 
-// Having another one above it was causing only the reviews to show.
 export default function VeridianLandingPage() {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const openModal = () => setIsModalOpen(true)
@@ -22,35 +20,52 @@ export default function VeridianLandingPage() {
   return (
     <>
       <Header onOpenModal={openModal} />
-      <main className="[&>section:nth-child(odd)]:bg-[var(--section-bg-odd)] [&>section:nth-child(even)]:bg-[var(--section-bg-even)]">
-        {/* SECTION 1: ORANGE (Hero Only) */}
-        <section>
+      <main className="bg-[#da6d42]"> {/* Base Orange background for the whole page */}
+
+        {/* 1. HERO: ORANGE */}
+        <section className="relative z-0 bg-[#da6d42]">
           <HeroSection onOpenModal={openModal} />
         </section>
 
-        {/* SECTION 2: GREEN (Cards + Services) */}
-        <section className="relative">
+        {/* 2. SERVICES: GREEN 
+            - Use -mt-32 to overlap the Hero
+            - Use pt-32/pb-48 to extend green field
+        */}
+        <section className="relative z-10 bg-[#50C878] -mt-24 lg:-mt-32 pt-32 lg:pt-48 pb-32 lg:pb-64 -mt-[1px]">
           <OverlappingCards />
           <ServicesSection onOpenModal={openModal} />
         </section>
 
-        {/* SECTION 3: ORANGE (Stats) */}
-        <section>
+        {/* 3. STATS: ORANGE 
+            - Standard padding for the floating look
+        */}
+        <section className="relative z-0 bg-[#da6d42] py-24 lg:py-48">
           <StatsSection />
         </section>
-        <section>
+
+        {/* 4. CASE STUDIES: GREEN 
+            - Overlaps the Stats section above
+        */}
+        <section className="relative z-10 bg-[#50C878] -mt-24 lg:-mt-32 py-24 lg:py-48 -mt-[1px]">
           <CaseStudySection />
         </section>
-        <section>
+
+        {/* 5. TESTIMONIALS: ORANGE */}
+        <section className="relative z-0 bg-[#da6d42] py-24 lg:py-48">
           <TestimonialsSection />
         </section>
-        <section>
+
+        {/* 6. FAQ: GREEN */}
+        <section className="relative z-10 bg-[#50C878] -mt-24 lg:-mt-32 py-24 lg:py-48 -mt-[1px]">
           <FaqSection />
         </section>
-        <section>
+
+        {/* 7. CTA: ORANGE */}
+        <section className="relative z-0 bg-[#da6d42] py-24 lg:py-48">
           <CtaSection onOpenModal={openModal} />
         </section>
       </main>
+
       <Footer />
       <BackToTop />
       <CtaModal open={isModalOpen} onOpenChange={setIsModalOpen} />
