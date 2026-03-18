@@ -35,7 +35,7 @@ export function StatsSection() {
   const { ref, isVisible } = useFadeIn()
 
   return (
-    <div id="stats" className="relative py-32 overflow-hidden bg-transparent">
+    <div id="stats" className="relative py-10 overflow-hidden bg-transparent">
       <div
         ref={ref}
         className={cn(
@@ -50,6 +50,7 @@ export function StatsSection() {
               key={stat.label}
               className={cn(
                 "flex flex-col items-center text-center px-4",
+                index % 2 === 0 && "border-r border-white/20 md:border-r-0",
                 index < stats.length - 1 && "md:border-r border-white/50"
               )}
             >

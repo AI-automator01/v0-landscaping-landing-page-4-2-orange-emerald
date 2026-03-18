@@ -11,14 +11,14 @@ export function HeroSection({ onOpenModal }: { onOpenModal: () => void }) {
   const { ref, isVisible } = useFadeIn()
 
   return (
-    <section className="relative overflow-hidden bg-[#da6d42] pt-0 pb-0" id="hero">
+    <section className="relative overflow-hidden bg-[#da6d42]" id="hero">
       <div className="absolute inset-0 opacity-[0.05]" style={{
         backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0)`,
         backgroundSize: '40px 40px'
       }} />
 
       <div ref={ref} className="relative z-10 mx-auto flex max-w-7xl items-center px-6">
-        <div className="grid w-full items-center gap-12 lg:grid-cols-2 lg:gap-16 pt-12 pb-12 lg:pt-20 lg:pb-20">
+        <div className="grid w-full items-center gap-12 lg:grid-cols-2 lg:gap-16 pt-10 pb-10 lg:pt-16 lg:pb-16">
           {/* Left Column */}
           <div className={cn("flex flex-col transition-all duration-700", isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0")}>
             <p className="mb-6 text-sm font-semibold uppercase tracking-[0.25em] text-white/90">{businessConfig.tagline}</p>
@@ -60,7 +60,7 @@ export function HeroSection({ onOpenModal }: { onOpenModal: () => void }) {
                 <span className="rounded-full bg-white/20 border border-white/30 px-3 py-1 text-[11px] font-bold text-white uppercase">Featured</span>
               </div>
             </div>
-            <div className="absolute z-20 flex flex-col justify-center rounded-2xl border border-white/30 bg-white/10 shadow-2xl backdrop-blur-xl -bottom-6 left-4 w-56 h-20">
+            <div className="absolute z-20 flex flex-col justify-center rounded-2xl border border-white/30 bg-white/10 shadow-2xl backdrop-blur-xl -bottom-6 left-4 w-56 h-20 sm:-bottom-6 sm:left-4">
               <div className="px-6 text-center">
                 <p className="text-3xl font-black text-white leading-none">{businessConfig.projectsCompleted}+</p>
                 <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white/70">Estates Transformed</p>
@@ -69,7 +69,7 @@ export function HeroSection({ onOpenModal }: { onOpenModal: () => void }) {
           </div>
         </div>
       </div>
-      <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#50C878] to-transparent opacity-50" />
+
     </section>
   )
 }

@@ -1,9 +1,15 @@
 import { NextResponse } from "next/server";
 
 export async function GET() {
+  const token = process.env.AIRTABLE_TOKEN;
+  const baseId = process.env.AIRTABLE_BASE_ID;
+
+  // Gracefully return empty list when env vars aren't configured yet
+  if (!token || !baseId) {
+    return NextResponse.json({ records: [] });
+  }
+
   try {
-    const token = process.env.AIRTABLE_TOKEN;
-    const baseId = process.env.AIRTABLE_BASE_ID;
     const tableName = "Testimonials";
 
     const query = new URLSearchParams({
@@ -16,15 +22,17 @@ export async function GET() {
       `https://api.airtable.com/v0/${baseId}/${tableName}?${query}`,
       {
         headers: { Authorization: `Bearer ${token}` },
-        next: { revalidate: 0 }
+        next: { revalidate: 300 },
       }
     );
 
-    if (!res.ok) throw new Error("Airtable fetch failed");
+    if (!res.ok) {
+      return NextResponse.json({ records: [] });
+    }
 
     const data = await res.json();
     return NextResponse.json({ records: data.records || [] });
-  } catch (error) {
-    return NextResponse.json({ records: [] }, { status: 500 });
+  } catch {
+    return NextResponse.json({ records: [] });
   }
 }
