@@ -79,21 +79,32 @@ export default function TestimonialsSection() {
             {reviews.map((review) => (
               <div
                 key={review.id}
-                className="group relative bg-white/20 backdrop-blur-md p-10 border border-white/20 flex flex-col h-full rounded-[2.5rem] hover:bg-white/15 transition-all duration-500 overflow-hidden"
+                className="group relative bg-white/20 backdrop-blur-md p-10 border border-white/20 flex flex-col h-full rounded-[2.5rem] hover:bg-white/25 transition-all duration-500 overflow-hidden"
               >
                 {/* The Spartan Drop-Down Line */}
                 <div className="absolute top-0 left-0 w-1.5 h-0 bg-white group-hover:h-full transition-all duration-700 ease-in-out" />
 
-                {/* Stars */}
+                {/* Stars - OPTION 2: Hollow Luxury Look */}
                 <div className="flex gap-1 mb-8">
-                  {[...Array(5)].map((_, i) => (
-                    <span
-                      key={i}
-                      className={`text-xl transition-colors duration-500 ${i < (review.fields.Stars || 0) ? "text-white" : "text-white/10"}`}
-                    >
-                      ★
-                    </span>
-                  ))}
+                  {[...Array(5)].map((_, i) => {
+                    const isFilled = i < (review.fields.Stars || 0);
+                    return (
+                      <span
+                        key={i}
+                        className={cn(
+                          "text-xl transition-all duration-500",
+                          isFilled ? "text-white scale-110" : "text-white/20"
+                        )}
+                        style={{
+                          // Adds a subtle text stroke to create the "hollow" effect for empty stars
+                          WebkitTextStroke: !isFilled ? "1px rgba(255,255,255,0.4)" : "none",
+                          color: !isFilled ? "transparent" : "white"
+                        }}
+                      >
+                        ★
+                      </span>
+                    );
+                  })}
                 </div>
 
                 {/* Review Body */}
