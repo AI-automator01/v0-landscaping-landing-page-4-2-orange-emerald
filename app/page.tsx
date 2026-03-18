@@ -58,7 +58,7 @@ export default function VeridianLandingPage() {
         </section>
 
         {/* 6. FAQ: GREEN */}
-        <section className="relative z-10 bg-[#50C878] -mt-16 lg:-mt-20 pt-12 lg:pt-10 pb-24 lg:pb-40 -mt-[1px]">
+        <section className="relative z-10 bg-[#50C878] -mt-16 lg:-mt-20 pt-12 lg:pt-20 pb-24 lg:pb-40 -mt-[1px]">
           <FaqSection />
         </section>
 
