@@ -90,7 +90,7 @@ export function OverlappingCards() {
   const { ref, isVisible } = useFadeIn()
 
   return (
-    /* FIXED: Aggressive -mt-40 pulls the section up to eliminate the orange gap from image_5fa65f.png */
+    /* FIXED: Aggressive -mt-40 pulls the section up to eliminate visual gaps */
     <div className="relative z-30 -mt-40 lg:-mt-24 mx-auto max-w-4xl px-6">
       <div
         ref={ref}
@@ -129,9 +129,7 @@ export function ServicesSection({ onOpenModal }: { onOpenModal: () => void }) {
   const { ref, isVisible } = useFadeIn()
 
   return (
-    /* FIXED: Reduced internal padding so the Page wrapper defines the rhythm. 
-       This prevents the "Green Void" seen in image_5f9e21.png 
-    */
+    /* FIXED: Stripped aggressive padding to let the page wrapper control rhythm */
     <section id="services" className="relative bg-transparent pt-16 pb-0 lg:pt-24">
       <div
         ref={ref}
@@ -172,7 +170,7 @@ export function ServicesSection({ onOpenModal }: { onOpenModal: () => void }) {
 
               <div className="mt-auto pt-6 flex flex-col gap-6">
                 <ul className="flex flex-wrap gap-2">
-                  {/* FIXED: Added explicit string type to resolve TypeScript error */}
+                  {/* FIXED: Explicit string type added here */}
                   {service.features.map((feature: string) => (
                     <li
                       key={feature}
