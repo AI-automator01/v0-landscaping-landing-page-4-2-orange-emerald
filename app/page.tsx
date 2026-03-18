@@ -69,8 +69,9 @@ export default function VeridianLandingPage() {
           We pull this up using a negative margin or 0 gap 
           to meet the CTA section perfectly.
       */}
-      <div className="relative z-10 bg-[#50C878] -mt-20 ">
-      </div><Footer />
+      <section className="relative z-10 bg-[#50C878] -mt-16 lg:-mt-20 py-12 lg:py-20 -mt-[1px]">
+      </section>
+      <Footer />
       <BackToTop />
       <CtaModal open={isModalOpen} onOpenChange={setIsModalOpen} />
     </>
