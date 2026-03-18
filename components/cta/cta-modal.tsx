@@ -85,8 +85,7 @@ export function CtaModal({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="glass-panel border-0 shadow-2xl sm:max-w-md sm:rounded-3xl">
-
+      <DialogContent className="bg-[#0a1a10] border border-white/10 shadow-2xl sm:max-w-md sm:rounded-[32px] text-white">
 
         {isSuccess ? (
           <div className="flex flex-col items-center gap-4 py-8 text-center">
