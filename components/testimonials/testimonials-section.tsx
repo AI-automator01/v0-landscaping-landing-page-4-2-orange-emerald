@@ -27,11 +27,14 @@ export default function TestimonialsSection() {
     async function fetchReviews() {
       try {
         const res = await fetch('/api/reviews');
-        if (!res.ok) throw new Error('Fetch failed');
+        if (!res.ok) {
+          setReviews([]);
+          return;
+        }
         const data = await res.json();
         setReviews(data.records || []);
-      } catch (error) {
-        console.error("Internal API Error:", error);
+      } catch {
+        setReviews([]);
       } finally {
         setLoading(false);
       }
