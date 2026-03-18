@@ -23,7 +23,7 @@ export default function VeridianLandingPage() {
       <main className="bg-[#da6d42]">
 
         {/* 1. HERO: ORANGE */}
-        <section className="relative z-0 bg-[#da6d42]">
+        <section className="relative z-0 bg-[#da6d42] lg:pb-0" >
           <HeroSection onOpenModal={openModal} />
         </section>
 
