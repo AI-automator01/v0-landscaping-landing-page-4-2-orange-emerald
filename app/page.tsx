@@ -33,36 +33,34 @@ export default function VeridianLandingPage() {
           <HeroSection onOpenModal={openModal} />
         </section>
 
-        {/* 2. SERVICES: GREEN
-            -mt-40 on mobile / -mt-32 on desktop pulls the glass card up into the orange.
-            pt-0 so the card touches the top of the green zone cleanly. */}
-        <section className="relative z-10 bg-[#50C878] -mt-40 lg:-mt-32 pt-0 pb-16">
+        {/* 2. SERVICES: GREEN */}
+        <section className="relative z-10 bg-[#50C878] -mt-40 lg:-mt-32 pt-0 pb-8">
           <OverlappingCards />
           <ServicesSection onOpenModal={openModal} />
         </section>
 
         {/* 3. STATS: ORANGE */}
-        <section className="relative z-0 bg-[#da6d42] py-16">
+        <section className="relative z-0 bg-[#da6d42] py-8">
           <StatsSection />
         </section>
 
         {/* 4. CASE STUDIES: GREEN */}
-        <section className="relative z-10 bg-[#50C878] py-16">
+        <section className="relative z-10 bg-[#50C878] py-8">
           <CaseStudySection />
         </section>
 
         {/* 5. TESTIMONIALS: ORANGE */}
-        <section className="relative z-0 bg-[#da6d42] py-16">
+        <section className="relative z-0 bg-[#da6d42] py-8">
           <TestimonialsSection />
         </section>
 
         {/* 6. FAQ: GREEN */}
-        <section className="relative z-10 bg-[#50C878] py-16">
+        <section className="relative z-10 bg-[#50C878] py-8">
           <FaqSection />
         </section>
 
         {/* 7. CTA: ORANGE */}
-        <section className="relative z-0 bg-[#da6d42] py-16">
+        <section className="relative z-0 bg-[#da6d42] py-8">
           <CtaSection onOpenModal={openModal} />
         </section>
 
