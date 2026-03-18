@@ -23,7 +23,7 @@ export default function VeridianLandingPage() {
       <main className="bg-[#da6d42]">
 
         {/* 1. HERO: ORANGE */}
-        <section className="relative z-0 bg-[#da6d42] lg:pb-0" >
+        <section className="relative z-0 bg-[#da6d42] " >
           <HeroSection onOpenModal={openModal} />
         </section>
 
@@ -38,7 +38,7 @@ export default function VeridianLandingPage() {
         {/* 3. STATS: ORANGE 
             - Tighter vertical padding for a cleaner transition
         */}
-        <section className="relative z-0 bg-[#da6d42] py-12 lg:py-12 lg:pt-0">
+        <section className="relative z-0 bg-[#da6d42] py-12 lg:py-12 lg:pt-0 pb-16 lg:pb-50">
           <StatsSection />
         </section>
 
