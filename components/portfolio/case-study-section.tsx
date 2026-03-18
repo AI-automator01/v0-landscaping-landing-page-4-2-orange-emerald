@@ -234,7 +234,7 @@ export function CaseStudySection() {
   const filtered = activeCategory === "All" ? caseStudies : caseStudies.filter((s) => s.category === activeCategory)
 
   return (
-    <section id="case-studies" className="bg-transparent py-24 ">
+    <section id="case-studies" className="relative bg-transparent pt-12 pb-24">
       <div ref={ref} className={cn("mx-auto max-w-7xl px-6 transition-all duration-700", isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0")}>
 
         <div className="mx-auto max-w-2xl text-center">
