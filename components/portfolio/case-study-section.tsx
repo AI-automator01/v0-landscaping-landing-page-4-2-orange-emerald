@@ -188,4 +188,44 @@ export function CaseStudySection() {
   const filtered = activeCategory === "All" ? caseStudies : caseStudies.filter((s) => s.category === activeCategory)
 
   return (
-    <section id="case-studies" className="relative bg-transparent pt-0 pb-2
+    <section id="case-studies" className="relative bg-transparent pt-0 pb-24">
+      <div ref={ref} className={cn("mx-auto max-w-7xl px-6 transition-all duration-700", isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0")}>
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="text-sm font-medium uppercase tracking-widest text-[#8C6D2D]">Case Studies</p>
+          <h2 className="mt-3 text-balance text-4xl font-bold tracking-tight text-white sm:text-5xl">Real Problems. Expert Solutions.</h2>
+          <p className="mt-4 text-pretty text-white/60 leading-relaxed font-medium">See how we engineer beautiful, lasting solutions for our clients' toughest landscape problems.</p>
+        </div>
+
+        <div className="mt-12 flex flex-wrap items-center justify-center gap-3">
+          <Filter className="mr-2 h-4 w-4 text-white/40" />
+          {categories.map((cat) => (
+            <button key={cat} onClick={() => setActiveCategory(cat)} className={cn(
+              "rounded-full px-6 py-2 text-xs font-black uppercase tracking-widest transition-all duration-300 border",
+              activeCategory === cat
+                ? "bg-white/10 text-white border-white/20 shadow-lg"
+                : "bg-transparent text-white/30 border-white/5 hover:border-white/10 hover:text-white"
+            )}>
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        {/* STAGGERED GRID IMPLEMENTATION */}
+        <div className="mt-24 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {filtered.map((study, index) => (
+            <div
+              key={study.id}
+              className={cn(
+                "transition-all duration-1000",
+                // Staggers the 2nd card in every row on desktop
+                "lg:even:translate-y-12"
+              )}
+            >
+              <CaseStudyCard study={study} index={index} isVisible={isVisible} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
