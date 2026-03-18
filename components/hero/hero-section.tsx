@@ -18,7 +18,7 @@ export function HeroSection({ onOpenModal }: { onOpenModal: () => void }) {
       }} />
 
       <div ref={ref} className="relative z-10 mx-auto flex max-w-7xl items-center px-6">
-        <div className="grid w-full items-center gap-12 lg:grid-cols-2 lg:gap-16 pt-10 pb-10 lg:pt-16 lg:pb-16">
+        <div className="grid w-full items-center gap-12 lg:grid-cols-2 lg:gap-16 pt-28 pb-10 lg:pt-32 lg:pb-16">
           {/* Left Column */}
           <div className={cn("flex flex-col transition-all duration-700", isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0")}>
             <ReviewBadge />
