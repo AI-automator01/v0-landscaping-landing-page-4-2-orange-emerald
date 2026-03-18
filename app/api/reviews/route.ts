@@ -22,7 +22,7 @@ export async function GET() {
       `https://api.airtable.com/v0/${baseId}/${tableName}?${query}`,
       {
         headers: { Authorization: `Bearer ${token}` },
-        next: { revalidate: 300 },
+        next: { revalidate: 5 },
       }
     );
 
