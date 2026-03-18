@@ -40,7 +40,7 @@ export default function VeridianLandingPage() {
 
         {/* 3. STATS: ORANGE */}
         {/* CHANGED: Dropped pb-10 to pb-0 on mobile to remove the orange tail */}
-        <section className="relative z-0 bg-[#da6d42] pt-12 pb-0 lg:pt-16 lg:pb-16 -mt-16 lg:-mt-18">
+        <section className="relative z-0 bg-[#da6d42] pt-1 pb-0 lg:pt-16 lg:pb-16 -mt-16 lg:-mt-18">
           <StatsSection />
         </section>
 
