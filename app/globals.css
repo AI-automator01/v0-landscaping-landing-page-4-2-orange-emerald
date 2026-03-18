@@ -51,6 +51,7 @@
   --color-primary-foreground: var(--primary-foreground);
   --color-border: var(--border);
   --color-veridian-green: var(--veridian-green);
+  --color-veridian-dark: var(--veridian-dark);
 }
 
 @layer base {

@@ -26,53 +26,50 @@ export default function VeridianLandingPage() {
 
       <main className="bg-[#da6d42] overflow-hidden">
 
-        {/* 1. HERO: ORANGE */}
-        {/* pb-48 is the "runway" for the Services overlap */}
-        <section className="relative z-0 bg-[#da6d42] pt-12 pb-48 lg:pt-32 lg:pb-40">
+        {/* 1. HERO: ORANGE
+            pb-56 on mobile gives enough runway for the OverlappingCards card
+            (-mt-40) to sit half-in the orange. pb-44 on lg is tuned for desktop. */}
+        <section className="relative z-0 bg-[#da6d42] pb-56 lg:pb-44">
           <HeroSection onOpenModal={openModal} />
         </section>
 
-        {/* 2. SERVICES: GREEN */}
-        {/* -mt-[220px] clears the Hero; pb-24 sets the gap for the next section */}
-        <section className="relative z-10 bg-[#50C878] -mt-[220px] lg:-mt-32 pt-0 lg:pt-40 pb-24 lg:pb-32">
-          <div className="pt-16 lg:pt-0">
-            <OverlappingCards />
-            <ServicesSection onOpenModal={openModal} />
-          </div>
+        {/* 2. SERVICES: GREEN — pt-0 lets OverlappingCards bleed up into orange; pb-10 closes the bottom */}
+        <section className="relative z-10 bg-[#50C878] -mt-40 lg:-mt-32 pt-0 pb-10">
+          <OverlappingCards />
+          <ServicesSection onOpenModal={openModal} />
         </section>
 
         {/* 3. STATS: ORANGE */}
-        {/* -mt-24 pulls it up; pb-24 sets the exit gap */}
-        <section className="relative z-0 bg-[#da6d42] -mt-24 lg:-mt-20 pt-20 pb-24 lg:py-32">
+        <section className="relative z-0 bg-[#da6d42] py-10">
           <StatsSection />
         </section>
 
         {/* 4. CASE STUDIES: GREEN */}
-        <section className="relative z-10 bg-[#50C878] -mt-24 lg:-mt-20 pt-20 pb-24 lg:py-32">
+        <section className="relative z-10 bg-[#50C878] py-10">
           <CaseStudySection />
         </section>
 
         {/* 5. TESTIMONIALS: ORANGE */}
-        <section className="relative z-0 bg-[#da6d42] -mt-24 lg:-mt-20 pt-20 pb-24 lg:py-32">
+        <section className="relative z-0 bg-[#da6d42] py-10">
           <TestimonialsSection />
         </section>
 
         {/* 6. FAQ: GREEN */}
-        <section className="relative z-10 bg-[#50C878] -mt-24 lg:-mt-20 pt-20 pb-24 lg:py-32">
+        <section className="relative z-10 bg-[#50C878] py-10">
           <FaqSection />
         </section>
 
         {/* 7. CTA: ORANGE */}
-        <section className="relative z-0 bg-[#da6d42] -mt-24 lg:-mt-20 pt-20 pb-24 lg:py-32">
+        <section className="relative z-0 bg-[#da6d42] py-10">
           <CtaSection onOpenModal={openModal} />
         </section>
 
       </main>
 
-      {/* FOOTER: GREEN */}
-      <section className="relative z-10 bg-[#50C878] -mt-24 lg:-mt-20 pt-20 pb-12 lg:py-32">
+      {/* FOOTER: DARK GREEN — seamless, no border */}
+      <div className="bg-[#388E52]">
         <Footer />
-      </section>
+      </div>
 
       <BackToTop />
       <CtaModal open={isModalOpen} onOpenChange={setIsModalOpen} />

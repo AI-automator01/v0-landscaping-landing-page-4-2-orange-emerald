@@ -35,7 +35,7 @@ export function StatsSection() {
   const { ref, isVisible } = useFadeIn()
 
   return (
-    <div id="stats" className="relative py-32 overflow-hidden bg-transparent">
+    <div id="stats" className="relative py-0 overflow-hidden bg-transparent">
       <div
         ref={ref}
         className={cn(
@@ -50,7 +50,11 @@ export function StatsSection() {
               key={stat.label}
               className={cn(
                 "flex flex-col items-center text-center px-4",
-                index < stats.length - 1 && "md:border-r border-white/50"
+                // On mobile 2-col grid: right border on left-column items (0, 2) but not items in last row right col
+                index === 0 && "border-r border-white/20 md:border-r-0",
+                index === 2 && "border-r border-white/20 md:border-r-0",
+                // On desktop 4-col: right border on all but last
+                index < stats.length - 1 && "md:border-r md:border-white/30"
               )}
             >
               {/* 1. Pure White Icon Container */}

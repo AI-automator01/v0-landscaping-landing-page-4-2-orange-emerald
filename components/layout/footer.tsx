@@ -10,8 +10,7 @@ const quickLinks = [
 
 export function Footer() {
   return (
-    <footer className=" bg-veridian-dark">
-      {/* FIXED: Changed py-16 to py-10 to match your requested spacing */}
+    <div className="bg-veridian-dark">
       <div className="mx-auto max-w-7xl px-6 py-10">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
@@ -99,6 +98,6 @@ export function Footer() {
           </div>
         </div>
       </div>
-    </footer>
+    </div>
   )
 }

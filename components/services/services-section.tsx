@@ -90,8 +90,10 @@ export function OverlappingCards() {
   const { ref, isVisible } = useFadeIn()
 
   return (
-    /* FIXED: Aggressive -mt-40 pulls the section up to eliminate visual gaps */
-    <div className="relative z-30 -mt-40 lg:-mt-24 mx-auto max-w-4xl px-6">
+    /* The parent section (-mt-40) already overlaps the orange.
+       No additional negative margin needed here — just center it with padding-top
+       to let the card float naturally at the orange/green boundary. */
+    <div className="relative z-30 mx-auto max-w-4xl px-6 -mt-20 lg:-mt-16 mb-0">
       <div
         ref={ref}
         className={cn(
@@ -129,8 +131,7 @@ export function ServicesSection({ onOpenModal }: { onOpenModal: () => void }) {
   const { ref, isVisible } = useFadeIn()
 
   return (
-    /* FIXED: Stripped aggressive padding to let the page wrapper control rhythm */
-    <section id="services" className="relative bg-transparent pt-16 pb-0 lg:pt-24">
+    <section id="services" className="relative bg-transparent pt-8 pb-0">
       <div
         ref={ref}
         className={cn(

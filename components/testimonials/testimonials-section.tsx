@@ -27,11 +27,15 @@ export default function TestimonialsSection() {
     async function fetchReviews() {
       try {
         const res = await fetch('/api/reviews');
-        if (!res.ok) throw new Error('Fetch failed');
+        if (!res.ok) {
+          setReviews([]);
+          setLoading(false);
+          return;
+        }
         const data = await res.json();
         setReviews(data.records || []);
-      } catch (error) {
-        console.error("Internal API Error:", error);
+      } catch {
+        setReviews([]);
       } finally {
         setLoading(false);
       }
@@ -40,11 +44,11 @@ export default function TestimonialsSection() {
   }, []);
 
   return (
-    <div className="bg-transparent pt-12 pb-24 px-6" id="testimonials">
+    <div className="bg-transparent py-0 px-6" id="testimonials">
       <div className="max-w-7xl mx-auto">
 
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-8">
           <div className="max-w-2xl">
             <h2 className="text-5xl md:text-6xl font-black text-white uppercase tracking-tighter mb-6">
               Proven <span className="opacity-50">Results.</span>
