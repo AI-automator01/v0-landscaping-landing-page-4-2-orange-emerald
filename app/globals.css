@@ -1,0 +1,118 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* High-Energy Theme Base */
+  --background: #da6d42;
+  --foreground: #FFFFFF;
+  --card: rgba(255, 255, 255, 0.1);
+  --card-foreground: #FFFFFF;
+  --popover: #da6d42;
+  --popover-foreground: #FFFFFF;
+  --primary: #FFFFFF;
+  --primary-foreground: #da6d42;
+  --secondary: rgba(255, 255, 255, 0.2);
+  --secondary-foreground: #FFFFFF;
+  --muted: rgba(255, 255, 255, 0.7);
+  --muted-foreground: #FFFFFF;
+  --accent: #FFFFFF;
+  --accent-foreground: #da6d42;
+  --destructive: #B33A3A;
+  --destructive-foreground: #FFFFFF;
+  --border: rgba(255, 255, 255, 0.2);
+  --input: rgba(255, 255, 255, 0.2);
+  --ring: #FFFFFF;
+  --radius: 0.625rem;
+
+  /* Theme brand tokens */
+  --veridian-gold: #FFFFFF;
+  --veridian-green: #50C878;
+  --veridian-green-light: #6EF098;
+  --veridian-cream: #FFFFFF;
+  --veridian-sage: rgba(255, 255, 255, 0.1);
+  --veridian-dark: #388E52;
+
+  --section-bg-odd: #da6d42;
+  --section-bg-even: #50C878;
+
+  --glass-bg: rgba(255, 255, 255, 0.12);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --glass-bg-hover: rgba(255, 255, 255, 0.2);
+}
+
+@theme inline {
+  --font-sans: 'Geist', 'Geist Fallback';
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-border: var(--border);
+  --color-veridian-green: var(--veridian-green);
+}
+
+@layer base {
+  * {
+    /* Use standard CSS for border and outline to avoid @apply issues */
+    border-color: var(--border);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+
+
+
+
+  /* Fixed Navigation Links */
+  nav a {
+    color: rgba(255, 255, 255, 0.9) !important;
+    transition: color 0.2s ease;
+  }
+
+  nav a:hover {
+    color: #FFFFFF !important;
+  }
+
+  /* Background logic */
+  main section:nth-of-type(odd) {
+    background-color: var(--section-bg-odd);
+  }
+
+  main section:nth-of-type(even) {
+    background-color: var(--section-bg-even);
+  }
+}
+
+/* Luxury Glassmorphism Utilities */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+}
+
+.glass-panel-hover:hover {
+  background: var(--glass-bg-hover);
+}
+
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
