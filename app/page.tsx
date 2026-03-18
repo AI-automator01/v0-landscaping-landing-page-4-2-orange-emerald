@@ -26,7 +26,7 @@ export default function VeridianLandingPage() {
       <main className="bg-[#da6d42]">
 
         {/* 1. HERO: ORANGE */}
-        <section className="relative z-0 bg-[#da6d42] pt-24 pb-10 lg:pt-1 lg:pb-20">
+        <section className="relative z-0 bg-[#da6d42] pt-24 pb-32 lg:pt-1 lg:pb-20">
           <HeroSection onOpenModal={openModal} />
         </section>
 
@@ -35,7 +35,7 @@ export default function VeridianLandingPage() {
   FIX 2: pt-0 ensures the green background starts IMMEDIATELY behind the card.
   FIX 3: -mt-[1px] is removed to prevent syntax clashing.
 */}
-        <section className="relative z-10 bg-[#50C878] -mt-[180px] lg:-mt-32 pt-20 lg:pt-40 pb-1 lg:pb-0">
+        <section className="relative z-10 bg-[#50C878] -mt-[180px] lg:-mt-32 pt-0 lg:pt-40 pb-16 lg:pb-0">
           <div className="pt-20 lg:pt-0"> {/* This gives internal room for the card */}
             <OverlappingCards />
             <ServicesSection onOpenModal={openModal} />
