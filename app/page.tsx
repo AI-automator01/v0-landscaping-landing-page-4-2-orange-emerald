@@ -38,45 +38,48 @@ export default function VeridianLandingPage() {
           <ServicesSection onOpenModal={openModal} />
         </section>
 
-        {/* 3. STATS: ORANGE 
-            - Tighter vertical padding for a cleaner transition
-        */}
-        <section className="relative z-0 bg-[#da6d42] pt-1 pb-24 lg:pt-16 lg:pb-16 -mt-16 lg:-mt-18">
+        {/* 3. STATS: ORANGE */}
+        {/* CHANGED: Dropped pb-10 to pb-0 on mobile to remove the orange tail */}
+        <section className="relative z-0 bg-[#da6d42] pt-12 pb-0 lg:pt-16 lg:pb-16 -mt-16 lg:-mt-18">
           <StatsSection />
         </section>
 
-        {/* 4. CASE STUDIES: GREEN 
-            - Pulls up into the Stats section with -mt
-        */}
-        <section className="relative z-10 bg-[#50C878] -mt-16 lg:-mt-20 pt-0 lg:pt-0 pb-24 lg:pb-0 -mt-[1px]">
+        {/* 4. CASE STUDIES: GREEN */}
+        {/* CHANGED: Increased -mt-16 to -mt-24 on mobile to pull the green block higher */}
+        {/* CHANGED: Added pt-16 on mobile to give the Case Study title a premium margin inside the green */}
+        <section className="relative z-10 bg-[#50C878] -mt-24 lg:-mt-20 pt-16 lg:pt-0 pb-24 lg:pb-0">
           <CaseStudySection />
         </section>
 
         {/* 5. TESTIMONIALS: ORANGE */}
-        <section className="relative z-0 bg-[#da6d42] pt-24 pb-24 lg:pt-18 lg:pb-18 -mt-16 lg:-mt-18">
+        {/* CHANGED: Reduced pb-24 to pb-6 on mobile to kill the extra orange space */}
+        {/* CHANGED: Simplified lg:pt-20 and lg:pb-10 for a balanced desktop look */}
+        <section className="relative z-0 bg-[#da6d42] pt-24 pb-10 lg:pt-20 lg:pb-10 -mt-16 lg:-mt-18">
           <TestimonialsSection />
         </section>
 
         {/* 6. FAQ: GREEN */}
-        {/* CHANGED: Reduced pb-24 to pb-6 on mobile to bring the bottom edge up */}
-        <section className="relative z-10 bg-[#50C878] -mt-16 lg:-mt-20 pt-1 lg:pt-0 pb-6 lg:pb-0 -mt-[1px]">
+        {/* CHANGED: Increased -mt-16 to -mt-24 on mobile to swallow the orange gap */}
+        {/* CHANGED: Increased pt-12 on mobile to give the FAQ header breathing room in the green block */}
+        <section className="relative z-10 bg-[#50C878] -mt-24 lg:-mt-20 pt-1 lg:pt-0 pb-1 lg:pb-0">
           <FaqSection />
         </section>
 
-        {/* 7. NEXT SECTION (CTA): ORANGE */}
-        {/* ADDED: -mt-12 on mobile to pull this orange block UP into the green area */}
-        <section className="relative z-0 bg-[#da6d42] -mt-12 lg:-mt-20 py-12 lg:py-20">
+        {/* 7. CTA: ORANGE */}
+        {/* CHANGED: Reduced pb-12 to pb-2 on mobile to kill the bottom gap */}
+        <section className="relative z-0 bg-[#da6d42] py-12 lg:py-20 pb-10 lg:pb-20">
           <CtaSection onOpenModal={openModal} />
         </section>
+
       </main>
 
-      {/* FOOTER SECTION 
-          We pull this up using a negative margin or 0 gap 
-          to meet the CTA section perfectly.
-      */}
-      <section className="relative z-10 bg-[#50C878] -mt-16 lg:-mt-20 pt-12 lg:pt-0 pb-24 lg:pb-0 -mt-[1px]">
+      {/* FOOTER: GREEN */}
+      {/* CHANGED: Increased -mt-16 to -mt-32 on mobile to swallow the remaining orange gap */}
+      {/* CHANGED: Removed pb-24 on mobile so the footer doesn't feel too long */}
+      <section className="relative z-10 bg-[#50C878] -mt-32 lg:-mt-20 pt-1 lg:pt-0 pb-1 lg:pb-0">
         <Footer />
       </section>
+
 
       <BackToTop />
       <CtaModal open={isModalOpen} onOpenChange={setIsModalOpen} />
