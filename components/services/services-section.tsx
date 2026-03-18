@@ -121,7 +121,7 @@ export function ServicesSection({ onOpenModal }: { onOpenModal: () => void }) {
        pt-48 (12rem) provides enough space for the sticky header 
        so your titles don't get covered.
     */
-    <section id="services" className="relative bg-transparent pt-48 pb-32">
+    <section id="services" className="relative bg-transparent pt-24 pb-32">
       <div
         ref={ref}
         className={cn(
