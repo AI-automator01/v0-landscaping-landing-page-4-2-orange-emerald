@@ -20,6 +20,11 @@ const overlappingCards = [
     title: "Smart Management",
     description: "Automated irrigation and lighting systems for effortless, year-round beauty.",
   },
+  {
+    icon: Fence, // You already have this imported from lucide-react
+    title: "Master Masonry",
+    description: "Architectural stonework and custom structures that define the geometry of your estate.",
+  },
 ]
 
 const services = [
