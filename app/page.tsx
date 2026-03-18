@@ -19,7 +19,7 @@ export default function VeridianLandingPage() {
 
   return (
     <>
-      <section className="relative z-10 bg-[#50C878] -mt-16 lg:-mt-20 pt-12 lg:pt-20 pb-20 lg:pb-40 -mt-[1px]">        <Header onOpenModal={openModal} />
+      <section className="relative z-10 bg-[#50C878] -mt-16 lg:-mt-20 pt-12 lg:pt-20 pb-20 lg:pb-30 -mt-[1px]">        <Header onOpenModal={openModal} />
       </section>
 
 
