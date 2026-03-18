@@ -30,15 +30,14 @@ export default function VeridianLandingPage() {
         {/* 2. SERVICES: GREEN 
             - Reduced padding to tighten the distance around cards
         */}
-        <section className="relative z-10 bg-[#50C878] -mt-20 lg:-mt-24 pt-16 lg:pt-24 pb-16 lg:pb-24 -mt-[1px]">
-          <OverlappingCards />
+        <section className="relative z-10 bg-[#50C878] -mt-16 lg:-mt-32 pt-40 lg:pt-40 pb-16 lg:pb-0 -mt-[1px]">          <OverlappingCards />
           <ServicesSection onOpenModal={openModal} />
         </section>
 
         {/* 3. STATS: ORANGE 
             - Tighter vertical padding for a cleaner transition
         */}
-        <section className="relative z-0 bg-[#da6d42] py-12 lg:py-20">
+        <section className="relative z-0 bg-[#da6d42] py-12 lg:py-12 lg:pt-0">
           <StatsSection />
         </section>
 
