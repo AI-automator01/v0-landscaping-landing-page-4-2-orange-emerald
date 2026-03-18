@@ -19,7 +19,10 @@ export default function VeridianLandingPage() {
 
   return (
     <>
-      <Header onOpenModal={openModal} />
+      <section className="relative z-10 bg-[#50C878] -mt-16 lg:-mt-20 pt-12 lg:pt-20 pb-20 lg:pb-40 -mt-[1px]">        <Header onOpenModal={openModal} />
+      </section>
+
+
       <main className="bg-[#da6d42]">
 
         {/* 1. HERO: ORANGE */}
@@ -70,8 +73,9 @@ export default function VeridianLandingPage() {
           to meet the CTA section perfectly.
       */}
       <section className="relative z-10 bg-[#50C878] -mt-16 lg:-mt-20 py-12 lg:py-20 -mt-[1px]">
+        <Footer />
       </section>
-      <Footer />
+
       <BackToTop />
       <CtaModal open={isModalOpen} onOpenChange={setIsModalOpen} />
     </>
