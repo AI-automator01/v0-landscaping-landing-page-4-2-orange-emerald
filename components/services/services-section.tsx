@@ -4,7 +4,21 @@ import { Palette, Leaf, Cpu, TreePine, Sun, Droplets, Lightbulb, Fence } from "l
 import { cn } from "@/lib/utils"
 import { useFadeIn } from "@/hooks/use-fade-in"
 
-const overlappingCards = [
+// Define the shape of our data to prevent 'any' type errors
+interface CardItem {
+  icon: any
+  title: string
+  description: string
+}
+
+interface ServiceItem {
+  icon: any
+  title: string
+  description: string
+  features: string[]
+}
+
+const overlappingCards: CardItem[] = [
   {
     icon: Palette,
     title: "Bespoke Artistry",
@@ -21,13 +35,13 @@ const overlappingCards = [
     description: "Automated irrigation and lighting systems for effortless, year-round beauty.",
   },
   {
-    icon: Fence, // You already have this imported from lucide-react
+    icon: Fence,
     title: "Master Masonry",
     description: "Architectural stonework and custom structures that define the geometry of your estate.",
   },
 ]
 
-const services = [
+const services: ServiceItem[] = [
   {
     icon: TreePine,
     title: "Estate Garden Design",
@@ -76,7 +90,8 @@ export function OverlappingCards() {
   const { ref, isVisible } = useFadeIn()
 
   return (
-    <div className="relative z-30 -mt-24 mx-auto max-w-4xl px-6"> {/* Reduced max-w for a tighter 2x2 look */}
+    /* FIXED: Aggressive -mt-40 pulls the section up to eliminate the orange gap from image_5fa65f.png */
+    <div className="relative z-30 -mt-40 lg:-mt-24 mx-auto max-w-4xl px-6">
       <div
         ref={ref}
         className={cn(
@@ -91,10 +106,7 @@ export function OverlappingCards() {
             className={cn(
               "flex flex-col items-center gap-3 px-8 py-12 text-center transition-all duration-300",
               "hover:bg-white/30",
-              /* BORDER LOGIC FOR 2x2 CROSS */
-              // Vertical divider for left column
               index % 2 === 0 && "sm:border-r border-white/50",
-              // Horizontal divider for top row
               index < 2 && "border-b border-white/50"
             )}
             style={{ transitionDelay: `${index * 100}ms` }}
@@ -117,11 +129,10 @@ export function ServicesSection({ onOpenModal }: { onOpenModal: () => void }) {
   const { ref, isVisible } = useFadeIn()
 
   return (
-    /* Changed py-24 to pt-48 pb-32.
-       pt-48 (12rem) provides enough space for the sticky header 
-       so your titles don't get covered.
+    /* FIXED: Reduced internal padding so the Page wrapper defines the rhythm. 
+       This prevents the "Green Void" seen in image_5f9e21.png 
     */
-    <section id="services" className="relative bg-transparent pt-24 pb-32">
+    <section id="services" className="relative bg-transparent pt-16 pb-0 lg:pt-24">
       <div
         ref={ref}
         className={cn(
@@ -129,9 +140,8 @@ export function ServicesSection({ onOpenModal }: { onOpenModal: () => void }) {
           isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
         )}
       >
-
         {/* Section Header */}
-        <div className="mx-auto max-w-2xl text-center mb-20">
+        <div className="mx-auto max-w-2xl text-center mb-16 lg:mb-20">
           <p className="text-xs font-black uppercase tracking-[0.3em] text-white/60">
             Our Expertise
           </p>
@@ -160,10 +170,10 @@ export function ServicesSection({ onOpenModal }: { onOpenModal: () => void }) {
                 {service.description}
               </p>
 
-              {/* Refined Feature Tags */}
               <div className="mt-auto pt-6 flex flex-col gap-6">
                 <ul className="flex flex-wrap gap-2">
-                  {service.features.map((feature) => (
+                  {/* FIXED: Added explicit string type to resolve TypeScript error */}
+                  {service.features.map((feature: string) => (
                     <li
                       key={feature}
                       className="rounded-full bg-white/10 border border-white/50 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white/80"

@@ -19,71 +19,60 @@ export default function VeridianLandingPage() {
 
   return (
     <>
-      <section className="relative z-10 bg-[#50C878] -mt-5 lg:-mt-20 pt-12 lg:pt-20 pb-20 lg:pb-30 -mt-[1px]">
+      {/* HEADER: GREEN */}
+      <section className="relative z-50 bg-[#50C878] py-2 lg:py-6">
         <Header onOpenModal={openModal} />
       </section>
 
-
-      <main className="bg-[#da6d42]">
+      <main className="bg-[#da6d42] overflow-hidden">
 
         {/* 1. HERO: ORANGE */}
-        <section className="relative z-0 bg-[#da6d42] pt-2 pb-3 lg:pt-1 lg:pb-20">
+        {/* pb-48 is the "runway" for the Services overlap */}
+        <section className="relative z-0 bg-[#da6d42] pt-12 pb-48 lg:pt-32 lg:pb-40">
           <HeroSection onOpenModal={openModal} />
         </section>
 
         {/* 2. SERVICES: GREEN */}
-        {/* REDUCED: Changed pt-20 to pt-0 on mobile. The div handles the top spacing. */}
-        {/* REDUCED: Changed pb-1 to pb-0 to eliminate the bottom green 'tail' */}
-        <section className="relative z-10 bg-[#50C878] -mt-[180px] lg:-mt-32 pt-30 lg:pt-40 pb-0 lg:pb-0">
-          <div className="pt-10 lg:pt-0"> {/* Adjusted to 10 for a tighter Spartan look */}
+        {/* -mt-[220px] clears the Hero; pb-24 sets the gap for the next section */}
+        <section className="relative z-10 bg-[#50C878] -mt-[220px] lg:-mt-32 pt-0 lg:pt-40 pb-24 lg:pb-32">
+          <div className="pt-16 lg:pt-0">
             <OverlappingCards />
             <ServicesSection onOpenModal={openModal} />
           </div>
         </section>
 
         {/* 3. STATS: ORANGE */}
-        {/* CHANGED: Increased -mt-16 to -mt-32 on mobile to 'swallow' the remaining green gap */}
-        {/* CHANGED: pt-12 gives the Stat Cards room to breathe once they slide up */}
-        <section className="relative z-0 bg-[#da6d42] -mt-32 lg:-mt-18 pt-12 pb-0 lg:pt-16 lg:pb-16">
+        {/* -mt-24 pulls it up; pb-24 sets the exit gap */}
+        <section className="relative z-0 bg-[#da6d42] -mt-24 lg:-mt-20 pt-20 pb-24 lg:py-32">
           <StatsSection />
         </section>
 
         {/* 4. CASE STUDIES: GREEN */}
-        {/* CHANGED: Increased -mt-16 to -mt-24 on mobile to pull the green block higher */}
-        {/* CHANGED: Added pt-16 on mobile to give the Case Study title a premium margin inside the green */}
-        <section className="relative z-10 bg-[#50C878] -mt-24 lg:-mt-20 pt-16 lg:pt-0 pb-24 lg:pb-0">
+        <section className="relative z-10 bg-[#50C878] -mt-24 lg:-mt-20 pt-20 pb-24 lg:py-32">
           <CaseStudySection />
         </section>
 
         {/* 5. TESTIMONIALS: ORANGE */}
-        {/* CHANGED: Reduced pb-24 to pb-6 on mobile to kill the extra orange space */}
-        {/* CHANGED: Simplified lg:pt-20 and lg:pb-10 for a balanced desktop look */}
-        <section className="relative z-0 bg-[#da6d42] pt-24 pb-10 lg:pt-20 lg:pb-10 -mt-16 lg:-mt-18">
+        <section className="relative z-0 bg-[#da6d42] -mt-24 lg:-mt-20 pt-20 pb-24 lg:py-32">
           <TestimonialsSection />
         </section>
 
         {/* 6. FAQ: GREEN */}
-        {/* CHANGED: Increased -mt-16 to -mt-24 on mobile to swallow the orange gap */}
-        {/* CHANGED: Increased pt-12 on mobile to give the FAQ header breathing room in the green block */}
-        <section className="relative z-10 bg-[#50C878] -mt-24 lg:-mt-20 pt-1 lg:pt-0 pb-1 lg:pb-0">
+        <section className="relative z-10 bg-[#50C878] -mt-24 lg:-mt-20 pt-20 pb-24 lg:py-32">
           <FaqSection />
         </section>
 
         {/* 7. CTA: ORANGE */}
-        {/* CHANGED: Reduced pb-12 to pb-2 on mobile to kill the bottom gap */}
-        <section className="relative z-0 bg-[#da6d42] py-12 lg:py-20 pb-10 lg:pb-20">
+        <section className="relative z-0 bg-[#da6d42] -mt-24 lg:-mt-20 pt-20 pb-24 lg:py-32">
           <CtaSection onOpenModal={openModal} />
         </section>
 
       </main>
 
       {/* FOOTER: GREEN */}
-      {/* CHANGED: Increased -mt-16 to -mt-32 on mobile to swallow the remaining orange gap */}
-      {/* CHANGED: Removed pb-24 on mobile so the footer doesn't feel too long */}
-      <section className="relative z-10 bg-[#50C878] -mt-32 lg:-mt-20 pt-1 lg:pt-0 pb-1 lg:pb-0">
+      <section className="relative z-10 bg-[#50C878] -mt-24 lg:-mt-20 pt-20 pb-12 lg:py-32">
         <Footer />
       </section>
-
 
       <BackToTop />
       <CtaModal open={isModalOpen} onOpenChange={setIsModalOpen} />

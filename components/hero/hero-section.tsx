@@ -11,7 +11,11 @@ export function HeroSection({ onOpenModal }: { onOpenModal: () => void }) {
   const { ref, isVisible } = useFadeIn()
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#da6d42] pt-32 pb-48 lg:pt-0 lg:pb-0" id="hero" >
+    /* FIX 1: Removed min-h-screen. 
+       FIX 2: Changed pt/pb to 0. We let the page.tsx wrapper handle this 
+       so the Hero stays perfectly aligned with the Header and Services.
+    */
+    <section className="relative overflow-hidden bg-[#da6d42] pt-0 pb-0" id="hero">
       {/* Subtle texture overlay */}
       <div className="absolute inset-0 opacity-[0.05]" style={{
         backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0)`,
@@ -21,7 +25,8 @@ export function HeroSection({ onOpenModal }: { onOpenModal: () => void }) {
       {/* Content */}
       <div
         ref={ref}
-        className="relative z-10 mx-auto flex min-h-screen max-w-7xl items-center px-6 pt-28 pb-32"
+        /* FIX 3: Removed min-h-screen and heavy padding here too. */
+        className="relative z-10 mx-auto flex max-w-7xl items-center px-6"
       >
         <div className="grid w-full items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left Column -- Text Content */}
@@ -37,7 +42,7 @@ export function HeroSection({ onOpenModal }: { onOpenModal: () => void }) {
 
             <ReviewBadge />
 
-            <h1 className="text-balance text-4xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl">
+            <h1 className="text-balance text-4xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl uppercase">
               Your Vision,{" "}
               <span className="text-white">Our Soil.</span>
               <br />
@@ -68,12 +73,12 @@ export function HeroSection({ onOpenModal }: { onOpenModal: () => void }) {
             <div className="mt-12 flex items-center gap-6">
               <div className="flex items-center gap-2 text-white/70">
                 <Award className="h-4 w-4 text-white" />
-                <span className="text-xs font-medium">Award Winning</span>
+                <span className="text-xs font-medium uppercase">Award Winning</span>
               </div>
               <div className="h-4 w-px bg-white/20" />
               <div className="flex items-center gap-2 text-white/70">
                 <Shield className="h-4 w-4 text-white" />
-                <span className="text-xs font-medium">Licensed & Insured</span>
+                <span className="text-xs font-medium uppercase">Licensed & Insured</span>
               </div>
             </div>
           </div>
@@ -85,10 +90,8 @@ export function HeroSection({ onOpenModal }: { onOpenModal: () => void }) {
               isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
             )}
           >
-            {/* Ambient glow */}
             <div className="absolute -inset-8 rounded-[48px] bg-white/5 blur-3xl" />
 
-            {/* Main Image Card */}
             <div className="relative w-full max-w-lg overflow-hidden rounded-[32px] border border-white/20 bg-white/10 p-3 shadow-2xl backdrop-blur-md">
               <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[24px]">
                 <Image
@@ -116,16 +119,12 @@ export function HeroSection({ onOpenModal }: { onOpenModal: () => void }) {
             <div className={cn(
               "absolute z-20 flex flex-col justify-center",
               "rounded-2xl border border-white/30 bg-white/10 shadow-2xl backdrop-blur-xl",
-
-              // --- POSITION CONTROLS ---
-              "-bottom-19", // VERTICAL: Increase number to go up, use negative to go down
-              "left-0",     // HORIZONTAL: Change to "left-4", "right-0", etc.
-
-              // --- SIZE CONTROLS ---
-              "w-60",       // WIDTH
-              "h-18"        // HEIGHT
+              "-bottom-6", // Tighter position for mobile
+              "left-4",
+              "w-56",
+              "h-20"
             )}>
-              <div className="px-8 text-center">
+              <div className="px-6 text-center">
                 <p className="text-3xl font-black text-white leading-none">
                   {businessConfig.projectsCompleted}+
                 </p>
