@@ -97,7 +97,7 @@ export default function TestimonialsSection() {
                         )}
                         style={{
                           // Adds a subtle text stroke to create the "hollow" effect for empty stars
-                          WebkitTextStroke: !isFilled ? "1px rgba(255,255,255,0.4)" : "none",
+                          WebkitTextStroke: !isFilled ? "1px rgba(255,255,255,0.7)" : "none",
                           color: !isFilled ? "transparent" : "white"
                         }}
                       >
