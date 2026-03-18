@@ -40,7 +40,7 @@ export default function TestimonialsSection() {
   }, []);
 
   return (
-    <div className="bg-transparent py-24 px-6" id="testimonials">
+    <div className="bg-transparent pt-12 pb-24 px-6" id="testimonials">
       <div className="max-w-7xl mx-auto">
 
         {/* Section Header */}
@@ -79,7 +79,7 @@ export default function TestimonialsSection() {
             {reviews.map((review) => (
               <div
                 key={review.id}
-                className="group relative bg-white/10 backdrop-blur-md p-10 border border-white/20 flex flex-col h-full rounded-[2.5rem] hover:bg-white/15 transition-all duration-500 overflow-hidden"
+                className="group relative bg-white/20 backdrop-blur-md p-10 border border-white/20 flex flex-col h-full rounded-[2.5rem] hover:bg-white/15 transition-all duration-500 overflow-hidden"
               >
                 {/* The Spartan Drop-Down Line */}
                 <div className="absolute top-0 left-0 w-1.5 h-0 bg-white group-hover:h-full transition-all duration-700 ease-in-out" />
