@@ -34,9 +34,7 @@
   --veridian-sage: rgba(255, 255, 255, 0.1);
   --veridian-dark: #388E52;
 
-  --section-bg-odd: #da6d42;
-  --section-bg-even: #50C878;
-
+  /* Glassmorphism Tokens */
   --glass-bg: rgba(255, 255, 255, 0.12);
   --glass-border: rgba(255, 255, 255, 0.3);
   --glass-bg-hover: rgba(255, 255, 255, 0.2);
@@ -57,40 +55,29 @@
 
 @layer base {
   * {
-    /* Use standard CSS for border and outline to avoid @apply issues */
     border-color: var(--border);
   }
 
   body {
     background-color: var(--background);
     color: var(--foreground);
+    /* Prevents horizontal scroll on mobile during animations */
+    overflow-x: hidden;
   }
 
   html {
     scroll-behavior: smooth;
   }
 
-
-
-
-
-  /* Fixed Navigation Links */
+  /* Fixed Navigation Links - Ensuring visibility on both Green/Orange */
   nav a {
-    color: rgba(255, 255, 255, 0.9) !important;
-    transition: color 0.2s ease;
+    color: rgba(255, 255, 255, 0.8) !important;
+    transition: all 0.3s ease;
   }
 
   nav a:hover {
     color: #FFFFFF !important;
-  }
-
-  /* Background logic */
-  main section:nth-of-type(odd) {
-    background-color: var(--section-bg-odd);
-  }
-
-  main section:nth-of-type(even) {
-    background-color: var(--section-bg-even);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
   }
 }
 
@@ -100,16 +87,20 @@
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
 }
 
 .glass-panel-hover:hover {
   background: var(--glass-bg-hover);
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
 }
 
+/* Spartan Scroll Animations */
 .fade-in-section {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
 .fade-in-section.is-visible {
