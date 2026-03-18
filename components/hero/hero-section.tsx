@@ -21,8 +21,8 @@ export function HeroSection({ onOpenModal }: { onOpenModal: () => void }) {
         <div className="grid w-full items-center gap-12 lg:grid-cols-2 lg:gap-16 pt-10 pb-10 lg:pt-16 lg:pb-16">
           {/* Left Column */}
           <div className={cn("flex flex-col transition-all duration-700", isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0")}>
-            <p className="mb-6 text-sm font-semibold uppercase tracking-[0.25em] text-white/90">{businessConfig.tagline}</p>
             <ReviewBadge />
+            <p className="mt-4 mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-white/90">{businessConfig.tagline}</p>
             <h1 className="text-balance text-4xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl uppercase">
               Your Vision, <span className="text-white">Our Soil.</span><br />Bespoke Outdoor Living.
             </h1>
@@ -60,11 +60,9 @@ export function HeroSection({ onOpenModal }: { onOpenModal: () => void }) {
                 <span className="rounded-full bg-white/20 border border-white/30 px-3 py-1 text-[11px] font-bold text-white uppercase">Featured</span>
               </div>
             </div>
-            <div className="absolute z-20 flex flex-col justify-center rounded-2xl border border-white/30 bg-white/10 shadow-2xl backdrop-blur-xl bottom-4 left-4 w-56 h-20">
-              <div className="px-6 text-center">
-                <p className="text-3xl font-black text-white leading-none">{businessConfig.projectsCompleted}+</p>
-                <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white/70">Estates Transformed</p>
-              </div>
+            <div className="absolute z-20 flex flex-col items-center justify-center rounded-2xl border border-white/30 bg-white/10 shadow-2xl backdrop-blur-xl bottom-4 left-4 w-44 py-3 px-4">
+              <p className="text-2xl font-black text-white leading-none">{businessConfig.projectsCompleted}+</p>
+              <p className="mt-1.5 text-[10px] font-bold uppercase tracking-[0.2em] text-white/70 text-center">Estates Transformed</p>
             </div>
           </div>
         </div>
