@@ -4,7 +4,21 @@ import { Palette, Leaf, Cpu, TreePine, Sun, Droplets, Lightbulb, Fence } from "l
 import { cn } from "@/lib/utils"
 import { useFadeIn } from "@/hooks/use-fade-in"
 
-const overlappingCards = [
+// Define the shape of our data to prevent 'any' type errors
+interface CardItem {
+  icon: any
+  title: string
+  description: string
+}
+
+interface ServiceItem {
+  icon: any
+  title: string
+  description: string
+  features: string[]
+}
+
+const overlappingCards: CardItem[] = [
   {
     icon: Palette,
     title: "Bespoke Artistry",
@@ -20,9 +34,14 @@ const overlappingCards = [
     title: "Smart Management",
     description: "Automated irrigation and lighting systems for effortless, year-round beauty.",
   },
+  {
+    icon: Fence,
+    title: "Master Masonry",
+    description: "Architectural stonework and custom structures that define the geometry of your estate.",
+  },
 ]
 
-const services = [
+const services: ServiceItem[] = [
   {
     icon: TreePine,
     title: "Estate Garden Design",
@@ -71,11 +90,12 @@ export function OverlappingCards() {
   const { ref, isVisible } = useFadeIn()
 
   return (
-    <div className="relative z-30 -mt-24 mx-auto max-w-6xl px-6">
+    /* FIXED: Aggressive -mt-40 pulls the section up to eliminate visual gaps */
+    <div className="relative z-30 -mt-40 lg:-mt-24 mx-auto max-w-4xl px-6">
       <div
         ref={ref}
         className={cn(
-          "grid gap-0 overflow-hidden rounded-[40px] border border-white/50 bg-white/10 backdrop-blur-3xl shadow-2xl sm:grid-cols-3",
+          "grid overflow-hidden rounded-[40px] border border-white/50 bg-white/10 backdrop-blur-3xl shadow-2xl grid-cols-1 sm:grid-cols-2",
           "transition-all duration-700",
           isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
         )}
@@ -84,17 +104,18 @@ export function OverlappingCards() {
           <div
             key={card.title}
             className={cn(
-              "flex flex-col items-center gap-3 px-8 py-14 text-center transition-all duration-300",
+              "flex flex-col items-center gap-3 px-8 py-12 text-center transition-all duration-300",
               "hover:bg-white/30",
-              index < overlappingCards.length - 1 && "sm:border-r border-white/50"
+              index % 2 === 0 && "sm:border-r border-white/50",
+              index < 2 && "border-b border-white/50"
             )}
             style={{ transitionDelay: `${index * 100}ms` }}
           >
-            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 border border-white/50 shadow-inner mb-2">
-              <card.icon className="h-7 w-7 text-white" />
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 border border-white/50 shadow-inner mb-2">
+              <card.icon className="h-6 w-6 text-white" />
             </div>
-            <h3 className="text-lg font-bold text-white uppercase tracking-tighter">{card.title}</h3>
-            <p className="text-sm leading-relaxed text-white/70">
+            <h3 className="text-base font-bold text-white uppercase tracking-tighter">{card.title}</h3>
+            <p className="text-xs leading-relaxed text-white/70">
               {card.description}
             </p>
           </div>
@@ -108,11 +129,8 @@ export function ServicesSection({ onOpenModal }: { onOpenModal: () => void }) {
   const { ref, isVisible } = useFadeIn()
 
   return (
-    /* Changed py-24 to pt-48 pb-32.
-       pt-48 (12rem) provides enough space for the sticky header 
-       so your titles don't get covered.
-    */
-    <section id="services" className="relative bg-transparent pt-48 pb-32">
+    /* FIXED: Stripped aggressive padding to let the page wrapper control rhythm */
+    <section id="services" className="relative bg-transparent pt-16 pb-0 lg:pt-24">
       <div
         ref={ref}
         className={cn(
@@ -120,9 +138,8 @@ export function ServicesSection({ onOpenModal }: { onOpenModal: () => void }) {
           isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
         )}
       >
-
         {/* Section Header */}
-        <div className="mx-auto max-w-2xl text-center mb-20">
+        <div className="mx-auto max-w-2xl text-center mb-16 lg:mb-20">
           <p className="text-xs font-black uppercase tracking-[0.3em] text-white/60">
             Our Expertise
           </p>
@@ -151,10 +168,10 @@ export function ServicesSection({ onOpenModal }: { onOpenModal: () => void }) {
                 {service.description}
               </p>
 
-              {/* Refined Feature Tags */}
               <div className="mt-auto pt-6 flex flex-col gap-6">
                 <ul className="flex flex-wrap gap-2">
-                  {service.features.map((feature) => (
+                  {/* FIXED: Explicit string type added here */}
+                  {service.features.map((feature: string) => (
                     <li
                       key={feature}
                       className="rounded-full bg-white/10 border border-white/50 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white/80"
