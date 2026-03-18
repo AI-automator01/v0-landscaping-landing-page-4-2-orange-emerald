@@ -51,7 +51,7 @@ export function FaqSection() {
   const { ref, isVisible } = useFadeIn()
 
   return (
-    <section id="faq" className="bg-transparent py-24">
+    <section id="faq" className="bg-transparent py-0">
       <div
         ref={ref}
         className={cn(

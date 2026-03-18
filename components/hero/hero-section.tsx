@@ -60,7 +60,7 @@ export function HeroSection({ onOpenModal }: { onOpenModal: () => void }) {
                 <span className="rounded-full bg-white/20 border border-white/30 px-3 py-1 text-[11px] font-bold text-white uppercase">Featured</span>
               </div>
             </div>
-            <div className="absolute z-20 flex flex-col justify-center rounded-2xl border border-white/30 bg-white/10 shadow-2xl backdrop-blur-xl -bottom-6 left-4 w-56 h-20 sm:-bottom-6 sm:left-4">
+            <div className="absolute z-20 flex flex-col justify-center rounded-2xl border border-white/30 bg-white/10 shadow-2xl backdrop-blur-xl bottom-4 left-4 w-56 h-20">
               <div className="px-6 text-center">
                 <p className="text-3xl font-black text-white leading-none">{businessConfig.projectsCompleted}+</p>
                 <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.2em] text-white/70">Estates Transformed</p>

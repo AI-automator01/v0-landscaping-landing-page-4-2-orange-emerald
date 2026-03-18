@@ -11,7 +11,7 @@ export function CtaSection({ onOpenModal }: { onOpenModal: () => void }) {
     /* FIXED: Applied exact '10' padding (40px) top and bottom.
        Removed overflow-hidden if not needed to prevent shadow clipping.
     */
-    <section id="contact" className="relative bg-transparent py-10">
+    <section id="contact" className="relative bg-transparent py-0">
       <div
         ref={ref}
         className={cn(

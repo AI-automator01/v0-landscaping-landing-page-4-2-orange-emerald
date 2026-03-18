@@ -29,6 +29,7 @@ export default function TestimonialsSection() {
         const res = await fetch('/api/reviews');
         if (!res.ok) {
           setReviews([]);
+          setLoading(false);
           return;
         }
         const data = await res.json();
