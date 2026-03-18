@@ -59,7 +59,7 @@ export function CtaSection({ onOpenModal }: { onOpenModal: () => void }) {
         </div>
 
         {/* Footer Meta */}
-        <p className="mt-16 text-[9px] font-black uppercase tracking-[0.4em] text-white/40">
+        <p className="mt-16 text-[14px] font-black uppercase tracking-[0.4em] text-white/70">
           Complimentary &middot; No Obligation &middot; Trinidad & Tobago
         </p>
       </div>
