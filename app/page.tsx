@@ -20,7 +20,7 @@ export default function VeridianLandingPage() {
   return (
     <>
       <Header onOpenModal={openModal} />
-      <main className="bg-[#da6d42]"> {/* Base Orange background for the whole page */}
+      <main className="bg-[#da6d42]">
 
         {/* 1. HERO: ORANGE */}
         <section className="relative z-0 bg-[#da6d42]">
@@ -28,40 +28,39 @@ export default function VeridianLandingPage() {
         </section>
 
         {/* 2. SERVICES: GREEN 
-            - Use -mt-32 to overlap the Hero
-            - Use pt-32/pb-48 to extend green field
+            - Reduced padding to tighten the distance around cards
         */}
-        <section className="relative z-10 bg-[#50C878] -mt-24 lg:-mt-32 pt-32 lg:pt-48 pb-32 lg:pb-64 -mt-[1px]">
+        <section className="relative z-10 bg-[#50C878] -mt-20 lg:-mt-24 pt-16 lg:pt-24 pb-16 lg:pb-24 -mt-[1px]">
           <OverlappingCards />
           <ServicesSection onOpenModal={openModal} />
         </section>
 
         {/* 3. STATS: ORANGE 
-            - Standard padding for the floating look
+            - Tighter vertical padding for a cleaner transition
         */}
-        <section className="relative z-0 bg-[#da6d42] py-24 lg:py-48">
+        <section className="relative z-0 bg-[#da6d42] py-12 lg:py-20">
           <StatsSection />
         </section>
 
         {/* 4. CASE STUDIES: GREEN 
-            - Overlaps the Stats section above
+            - Pulls up into the Stats section with -mt
         */}
-        <section className="relative z-10 bg-[#50C878] -mt-24 lg:-mt-32 py-24 lg:py-48 -mt-[1px]">
+        <section className="relative z-10 bg-[#50C878] -mt-16 lg:-mt-20 py-12 lg:py-20 -mt-[1px]">
           <CaseStudySection />
         </section>
 
         {/* 5. TESTIMONIALS: ORANGE */}
-        <section className="relative z-0 bg-[#da6d42] py-24 lg:py-48">
+        <section className="relative z-0 bg-[#da6d42] py-12 lg:py-20">
           <TestimonialsSection />
         </section>
 
         {/* 6. FAQ: GREEN */}
-        <section className="relative z-10 bg-[#50C878] -mt-24 lg:-mt-32 py-24 lg:py-48 -mt-[1px]">
+        <section className="relative z-10 bg-[#50C878] -mt-16 lg:-mt-20 py-12 lg:py-20 -mt-[1px]">
           <FaqSection />
         </section>
 
         {/* 7. CTA: ORANGE */}
-        <section className="relative z-0 bg-[#da6d42] py-24 lg:py-48">
+        <section className="relative z-0 bg-[#da6d42] py-12 lg:py-20">
           <CtaSection onOpenModal={openModal} />
         </section>
       </main>
