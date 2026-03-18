@@ -26,14 +26,14 @@ export default function VeridianLandingPage() {
       <main className="bg-[#da6d42]">
 
         {/* 1. HERO: ORANGE */}
-        <section className="relative z-0 bg-[#da6d42] pb-24 lg:pb-0 -mt-10 " >
+        <section className="relative z-0 bg-[#da6d42] pb-24 lg:pb-0-mt-10 " >
           <HeroSection onOpenModal={openModal} />
         </section>
 
         {/* 2. SERVICES: GREEN 
             - Reduced padding to tighten the distance around cards
         */}
-        <section className="relative z-10 bg-[#50C878] mt-24 lg:-mt-32 pt-12 lg:pt-0 pb-24 lg:pb-0 -mt-[1px]">
+        <section className="relative z-10 bg-[#50C878] mt-24 lg:-mt-32 pt-40 lg:pt-40 pb-16 lg:pb-0 -mt-[1px]">
           <OverlappingCards />
           <ServicesSection onOpenModal={openModal} />
         </section>
