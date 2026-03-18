@@ -76,11 +76,12 @@ export function OverlappingCards() {
   const { ref, isVisible } = useFadeIn()
 
   return (
-    <div className="relative z-30 -mt-24 mx-auto max-w-6xl px-6">
+    <div className="relative z-30 -mt-24 mx-auto max-w-7xl px-6"> {/* Increased max-w to 7xl for 4 cards */}
       <div
         ref={ref}
         className={cn(
-          "grid gap-0 overflow-hidden rounded-[40px] border border-white/50 bg-white/10 backdrop-blur-3xl shadow-2xl sm:grid-cols-3",
+          /* Updated grid-cols: 1 on mobile, 2 on small tablets, 4 on desktop */
+          "grid gap-0 overflow-hidden rounded-[40px] border border-white/50 bg-white/10 backdrop-blur-3xl shadow-2xl sm:grid-cols-2 lg:grid-cols-4",
           "transition-all duration-700",
           isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
         )}
@@ -91,11 +92,14 @@ export function OverlappingCards() {
             className={cn(
               "flex flex-col items-center gap-3 px-8 py-14 text-center transition-all duration-300",
               "hover:bg-white/30",
-              index < overlappingCards.length - 1 && "sm:border-r border-white/50"
+              /* Updated border logic for 4 columns */
+              index < overlappingCards.length - 1 && "lg:border-r border-white/50",
+              // Optional: adds border between rows on tablet
+              index % 2 === 0 && "sm:border-r lg:border-r-0"
             )}
             style={{ transitionDelay: `${index * 100}ms` }}
           >
-            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 border border-white/50 shadow-inner mb-2">
+            <div className="flex h-16 w-16 items-center justify-center rounded-2x2 bg-white/10 border border-white/50 shadow-inner mb-2">
               <card.icon className="h-7 w-7 text-white" />
             </div>
             <h3 className="text-lg font-bold text-white uppercase tracking-tighter">{card.title}</h3>
