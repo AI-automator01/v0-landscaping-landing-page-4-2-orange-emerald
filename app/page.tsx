@@ -26,14 +26,15 @@ export default function VeridianLandingPage() {
       <main className="bg-[#da6d42]">
 
         {/* 1. HERO: ORANGE */}
-        <section className="relative z-0 bg-[#da6d42] pt-1 lg:pt-1 pb-24 lg:pb-20 -mt-50 lg:-mt-24">
+        {/* CHANGED: Removed broken -mt-50. Added pt-20 to fix the top card overlap */}
+        <section className="relative z-0 bg-[#da6d42] pt-20 lg:pt-1 pb-24 lg:pb-20">
           <HeroSection onOpenModal={openModal} />
         </section>
 
-        {/* 2. SERVICES: GREEN 
-            - Reduced padding to tighten the distance around cards
-        */}
-        <section className="relative z-10 bg-[#50C878] -mt-50 lg:-mt-32 pt-40 lg:pt-40 pb-1 lg:pb-0 -mt-[1px]">
+        {/* 2. SERVICES: GREEN */}
+        {/* CHANGED: Used valid -mt-16 to pull the green block over the orange. 
+    CHANGED: Dropped pt-40 to pt-10 to kill the giant green gap. */}
+        <section className="relative z-10 bg-[#50C878] -mt-16 lg:-mt-32 pt-10 lg:pt-40 pb-1 lg:pb-0">
           <OverlappingCards />
           <ServicesSection onOpenModal={openModal} />
         </section>
