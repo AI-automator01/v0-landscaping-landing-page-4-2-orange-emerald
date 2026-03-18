@@ -11,7 +11,7 @@ export function HeroSection({ onOpenModal }: { onOpenModal: () => void }) {
   const { ref, isVisible } = useFadeIn()
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#da6d42] pt-32 pb-48 lg:pt-48 lg:pb-60" id="hero" >
+    <section className="relative min-h-screen overflow-hidden bg-[#da6d42] pt-32 pb-48 lg:pt-48 lg:pb-20" id="hero" >
       {/* Subtle texture overlay */}
       <div className="absolute inset-0 opacity-[0.05]" style={{
         backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0)`,
