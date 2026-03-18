@@ -35,7 +35,7 @@ export function StatsSection() {
   const { ref, isVisible } = useFadeIn()
 
   return (
-    <div id="stats" className="relative py-10 overflow-hidden bg-transparent">
+    <div id="stats" className="relative py-0 overflow-hidden bg-transparent">
       <div
         ref={ref}
         className={cn(

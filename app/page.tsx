@@ -33,34 +33,34 @@ export default function VeridianLandingPage() {
           <HeroSection onOpenModal={openModal} />
         </section>
 
-        {/* 2. SERVICES: GREEN */}
-        <section className="relative z-10 bg-[#50C878] -mt-40 lg:-mt-32 pt-0 pb-8">
+        {/* 2. SERVICES: GREEN — pt-0 lets OverlappingCards bleed up into orange; pb-10 closes the bottom */}
+        <section className="relative z-10 bg-[#50C878] -mt-40 lg:-mt-32 pt-0 pb-10">
           <OverlappingCards />
           <ServicesSection onOpenModal={openModal} />
         </section>
 
         {/* 3. STATS: ORANGE */}
-        <section className="relative z-0 bg-[#da6d42] py-8">
+        <section className="relative z-0 bg-[#da6d42] py-10">
           <StatsSection />
         </section>
 
         {/* 4. CASE STUDIES: GREEN */}
-        <section className="relative z-10 bg-[#50C878] py-8">
+        <section className="relative z-10 bg-[#50C878] py-10">
           <CaseStudySection />
         </section>
 
         {/* 5. TESTIMONIALS: ORANGE */}
-        <section className="relative z-0 bg-[#da6d42] py-8">
+        <section className="relative z-0 bg-[#da6d42] py-10">
           <TestimonialsSection />
         </section>
 
         {/* 6. FAQ: GREEN */}
-        <section className="relative z-10 bg-[#50C878] py-8">
+        <section className="relative z-10 bg-[#50C878] py-10">
           <FaqSection />
         </section>
 
         {/* 7. CTA: ORANGE */}
-        <section className="relative z-0 bg-[#da6d42] py-8">
+        <section className="relative z-0 bg-[#da6d42] py-10">
           <CtaSection onOpenModal={openModal} />
         </section>
 
