@@ -72,7 +72,7 @@ export default function VeridianLandingPage() {
           We pull this up using a negative margin or 0 gap 
           to meet the CTA section perfectly.
       */}
-      <section className="relative z-10 bg-[#50C878] -mt-16 lg:-mt-20 py-12 lg:py-20 pb-24 lg:pb-40 -mt-[1px]">
+      <section className="relative z-10 bg-[#50C878] -mt-16 lg:-mt-20 py-12 lg:py-20 pb-24 lg:pb-10 -mt-[1px]">
         <Footer />
       </section>
 
