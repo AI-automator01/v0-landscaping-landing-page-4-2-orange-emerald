@@ -8,13 +8,15 @@ export function CtaSection({ onOpenModal }: { onOpenModal: () => void }) {
   const { ref, isVisible } = useFadeIn()
 
   return (
-    // bg-transparent to let the orange bleed through
-    <section id="contact" className="relative overflow-hidden bg-transparent py-32">
+    // CHANGED: Reduced padding-top from py-32 to pt-12 to pull the whole block up
+    <section id="contact" className="relative overflow-hidden bg-transparent pt-12 pb-32">
       <div
         ref={ref}
         className={cn(
-          "relative z-10 mx-auto max-w-4xl px-6 text-center transition-all duration-1000 ease-out",
-          isVisible ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"
+          // CHANGED: Added -mt-16 to shift the content specifically higher within the section
+          // CHANGED: Adjusted translate-y-12 to translate-y-8 for a tighter fade-in animation
+          "relative z-10 mx-auto max-w-4xl px-6 text-center transition-all duration-1000 ease-out -mt-16",
+          isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
         )}
       >
         {/* Spartan Tagline */}
