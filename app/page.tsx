@@ -65,7 +65,7 @@ export default function VeridianLandingPage() {
 
         {/* 7. NEXT SECTION (CTA): ORANGE */}
         {/* ADDED: -mt-12 on mobile to pull this orange block UP into the green area */}
-        <section className="relative z-0 bg-[#da6d42] -mt-12 lg:-mt-20 py-12 lg:py-20 pb-6 lg:pb-0">
+        <section className="relative z-0 bg-[#da6d42] -mt-12 lg:-mt-20 py-12 lg:py-20">
           <CtaSection onOpenModal={openModal} />
         </section>
       </main>
