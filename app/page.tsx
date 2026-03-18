@@ -19,51 +19,60 @@ export default function VeridianLandingPage() {
 
   return (
     <>
-      {/* HEADER: GREEN - Standardized Header Spacing */}
-      <section className="relative z-50 bg-[#50C878] pt-6 pb-6 lg:pt-8 lg:pb-8">
-        <Header onOpenModal={openModal} />
+      <section className="relative z-10 bg-[#50C878] -mt-16 lg:-mt-20 pt-12 lg:pt-20 pb-20 lg:pb-30 -mt-[1px]">        <Header onOpenModal={openModal} />
       </section>
 
+
       <main className="bg-[#da6d42]">
-        {/* 1. HERO: ORANGE - Balanced top margin to meet header */}
-        <section className="relative z-0 bg-[#da6d42] pt-12 lg:pt-20 pb-24 lg:pb-32">
+
+        {/* 1. HERO: ORANGE */}
+        <section className="relative z-0 bg-[#da6d42] pt-1 lg:pt-1 pb-24 lg:pb-20 -mt-50 lg:-mt-24">
           <HeroSection onOpenModal={openModal} />
         </section>
 
-        {/* 2. SERVICES: GREEN - Balanced heavy padding to allow cards room */}
-        <section className="relative z-10 bg-[#50C878] -mt-20 pt-32 lg:pt-40 pb-24 lg:pb-32">
+        {/* 2. SERVICES: GREEN 
+            - Reduced padding to tighten the distance around cards
+        */}
+        <section className="relative z-10 bg-[#50C878] -mt-80 lg:-mt-32 pt-40 lg:pt-40 pb-16 lg:pb-0 -mt-[1px]">
           <OverlappingCards />
           <ServicesSection onOpenModal={openModal} />
         </section>
 
-        {/* 3. STATS: ORANGE - Balanced scroll weight */}
-        <section className="relative z-0 bg-[#da6d42] -mt-20 py-24 lg:py-32">
+        {/* 3. STATS: ORANGE 
+            - Tighter vertical padding for a cleaner transition
+        */}
+        <section className="relative z-0 bg-[#da6d42] pt-24 pb-24 lg:pt-16 lg:pb-16 -mt-16 lg:-mt-18">
           <StatsSection />
         </section>
 
-        {/* 4. CASE STUDIES: GREEN */}
-        <section className="relative z-10 bg-[#50C878] -mt-20 py-24 lg:py-32">
+        {/* 4. CASE STUDIES: GREEN 
+            - Pulls up into the Stats section with -mt
+        */}
+        <section className="relative z-10 bg-[#50C878] -mt-16 lg:-mt-20 pt-12 lg:pt-0 pb-24 lg:pb-0 -mt-[1px]">
           <CaseStudySection />
         </section>
 
         {/* 5. TESTIMONIALS: ORANGE */}
-        <section className="relative z-0 bg-[#da6d42] -mt-20 py-24 lg:py-32">
+        <section className="relative z-0 bg-[#da6d42] pt-24 pb-24 lg:pt-18 lg:pb-18 -mt-16 lg:-mt-18">
           <TestimonialsSection />
         </section>
 
         {/* 6. FAQ: GREEN */}
-        <section className="relative z-10 bg-[#50C878] -mt-20 py-24 lg:py-32">
+        <section className="relative z-10 bg-[#50C878] -mt-16 lg:-mt-20 pt-12 lg:pt-0 pb-24 lg:pb-0 -mt-[1px]">
           <FaqSection />
         </section>
 
         {/* 7. CTA: ORANGE */}
-        <section className="relative z-0 bg-[#da6d42] -mt-20 py-24 lg:py-32">
+        <section className="relative z-0 bg-[#da6d42] py-12 lg:py-15">
           <CtaSection onOpenModal={openModal} />
         </section>
       </main>
 
-      {/* FOOTER: GREEN - Balanced so the page doesn't end abruptly */}
-      <section className="relative z-10 bg-[#50C878] -mt-20 py-24 lg:py-32">
+      {/* FOOTER SECTION 
+          We pull this up using a negative margin or 0 gap 
+          to meet the CTA section perfectly.
+      */}
+      <section className="relative z-10 bg-[#50C878] -mt-16 lg:-mt-20 pt-12 lg:pt-0 pb-24 lg:pb-0 -mt-[1px]">
         <Footer />
       </section>
 
