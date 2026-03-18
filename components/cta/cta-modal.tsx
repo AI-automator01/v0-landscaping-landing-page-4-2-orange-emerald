@@ -43,8 +43,6 @@ export function CtaModal({
     setIsSubmitting(true)
 
     try {
-      // SECURE CHANGE: We now hit our internal API route
-      // No tokens or IDs are visible in this file anymore
       const response = await fetch("/api/leads", {
         method: "POST",
         headers: {
@@ -65,7 +63,6 @@ export function CtaModal({
 
       setIsSuccess(true)
 
-      // Reset form and close after success
       setTimeout(() => {
         setIsSuccess(false)
         setFormData({ name: "", email: "", phone: "", service: "" })
@@ -85,117 +82,132 @@ export function CtaModal({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="bg-[#0a1a10] border border-white/10 shadow-2xl sm:max-w-md sm:rounded-[32px] text-white">
+      <DialogContent className="bg-[#0a1a10] border border-white/10 shadow-2xl sm:max-w-md sm:rounded-[32px] text-white p-0 overflow-hidden">
 
-        {isSuccess ? (
-          <div className="flex flex-col items-center gap-4 py-8 text-center">
-            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-veridian-green">
-              <Check className="h-8 w-8 text-veridian-cream" />
+        {/* Progress Bar */}
+        <div className="absolute top-0 left-0 h-1 bg-white/5 w-full z-50">
+          <div
+            className="h-full bg-[#da6d42] transition-all duration-500 ease-out"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+
+        <div className="p-8">
+          {isSuccess ? (
+            <div className="flex flex-col items-center gap-4 py-8 text-center">
+              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-veridian-green">
+                <Check className="h-8 w-8 text-veridian-cream" />
+              </div>
+              <h3 className="text-xl font-semibold text-veridian-green">Thank You!</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Your consultation request has been received. Our design team will
+                reach out within 24 hours.
+              </p>
             </div>
-            <h3 className="text-xl font-semibold text-veridian-green">Thank You!</h3>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              Your consultation request has been received. Our design team will
-              reach out within 24 hours.
-            </p>
-          </div>
-        ) : (
-          <>
-            <DialogHeader>
-              <DialogTitle className="text-xl text-veridian-green">
-                Start Your Transformation
-              </DialogTitle>
-              <DialogDescription className="text-muted-foreground">
-                Tell us about your project and we&apos;ll schedule a complimentary consultation.
-              </DialogDescription>
-            </DialogHeader>
+          ) : (
+            <>
+              <DialogHeader>
+                <DialogTitle className="text-xl text-veridian-green">
+                  Start Your Transformation
+                </DialogTitle>
+                <DialogDescription className="text-muted-foreground">
+                  Tell us about your project and we&apos;ll schedule a complimentary consultation.
+                </DialogDescription>
+              </DialogHeader>
 
-            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-              <div className="flex flex-col gap-2">
-                <label htmlFor="cta-name" className="text-sm font-medium text-veridian-green">
-                  Full Name
-                </label>
-                <Input
-                  id="cta-name"
-                  type="text"
-                  placeholder="Your full name"
-                  required
-                  value={formData.name}
-                  onChange={(e) => handleChange("name", e.target.value)}
-                  className="rounded-xl border-veridian-green/12 bg-veridian-sage/50"
-                />
-              </div>
+              <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-4">
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="cta-name" className="text-sm font-medium text-veridian-green">
+                    Full Name
+                  </label>
+                  <Input
+                    id="cta-name"
+                    type="text"
+                    placeholder="Your full name"
+                    required
+                    value={formData.name}
+                    onChange={(e) => handleChange("name", e.target.value)}
+                    className="rounded-xl border-veridian-green/12 bg-veridian-sage/50"
+                  />
+                </div>
 
-              <div className="flex flex-col gap-2">
-                <label htmlFor="cta-email" className="text-sm font-medium text-veridian-green">
-                  Email Address
-                </label>
-                <Input
-                  id="cta-email"
-                  type="email"
-                  placeholder="your.email@example.com"
-                  required
-                  value={formData.email}
-                  onChange={(e) => handleChange("email", e.target.value)}
-                  className="rounded-xl border-veridian-green/12 bg-veridian-sage/50"
-                />
-              </div>
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="cta-email" className="text-sm font-medium text-veridian-green">
+                    Email Address
+                  </label>
+                  <Input
+                    id="cta-email"
+                    type="email"
+                    placeholder="your.email@example.com"
+                    required
+                    value={formData.email}
+                    onChange={(e) => handleChange("email", e.target.value)}
+                    className="rounded-xl border-veridian-green/12 bg-veridian-sage/50"
+                  />
+                </div>
 
-              <div className="flex flex-col gap-2">
-                <label htmlFor="cta-phone" className="text-sm font-medium text-veridian-green">
-                  Phone Number
-                </label>
-                <Input
-                  id="cta-phone"
-                  type="tel"
-                  placeholder="(555) 123-4567"
-                  required
-                  value={formData.phone}
-                  onChange={(e) => handleChange("phone", e.target.value)}
-                  className="rounded-xl border-veridian-green/12 bg-veridian-sage/50"
-                />
-              </div>
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="cta-phone" className="text-sm font-medium text-veridian-green">
+                    Phone Number
+                  </label>
+                  <Input
+                    id="cta-phone"
+                    type="tel"
+                    placeholder="(555) 123-4567"
+                    required
+                    value={formData.phone}
+                    onChange={(e) => handleChange("phone", e.target.value)}
+                    className="rounded-xl border-veridian-green/12 bg-veridian-sage/50"
+                  />
+                </div>
 
-              <div className="flex flex-col gap-2">
-                <label className="text-sm font-medium text-veridian-green">
-                  Service Interest
-                </label>
-                <Select
-                  value={formData.service}
-                  onValueChange={(value) => handleChange("service", value)}
+                <div className="flex flex-col gap-2">
+                  <label className="text-sm font-medium text-veridian-green">
+                    Service Interest
+                  </label>
+                  <Select
+                    value={formData.service}
+                    onValueChange={(value) => handleChange("service", value)}
+                  >
+                    <SelectTrigger className="w-full rounded-xl border-veridian-green/12 bg-veridian-sage/50">
+                      <SelectValue placeholder="Select a service" />
+                    </SelectTrigger>
+                    {/* DROP DOWN LOGIC: Targeting businessConfig.services */}
+                    <SelectContent className="rounded-xl bg-white shadow-xl text-black">
+                      {businessConfig.services.map((service) => (
+                        <SelectItem key={service} value={service}>
+                          {service}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="group mt-2 flex items-center justify-center gap-2 rounded-full bg-veridian-green py-3 text-sm font-semibold text-veridian-cream transition-all hover:bg-veridian-green-light disabled:opacity-70"
                 >
-                  <SelectTrigger className="w-full rounded-xl border-veridian-green/12 bg-veridian-sage/50">
-                    <SelectValue placeholder="Select a service" />
-                  </SelectTrigger>
-                  <SelectContent className="rounded-xl bg-white shadow-xl">
-                    {businessConfig.services.map((service) => (
-                      <SelectItem key={service} value={service}>
-                        {service}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </div>
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="h-4 w-4 animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      Request Consultation
+                      <ArrowRight className="h-4 w-4" />
+                    </>
+                  )}
+                </button>
 
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="group mt-2 flex items-center justify-center gap-2 rounded-full bg-veridian-green py-3 text-sm font-semibold text-veridian-cream transition-all hover:bg-veridian-green-light disabled:opacity-70"
-              >
-                {isSubmitting ? (
-                  <>
-                    <Loader2 className="h-4 w-4 animate-spin" />
-                    Sending...
-                  </>
-                ) : (
-                  <>
-                    Request Consultation
-                    <ArrowRight className="h-4 w-4" />
-                  </>
-                )}
-              </button>
-            </form>
-          </>
-        )}
+                <p className="mt-2 text-center text-[9px] font-black uppercase tracking-[0.2em] text-white/20">
+                  Your data is secured with Veridian encryption
+                </p>
+              </form>
+            </>
+          )}
+        </div>
       </DialogContent>
     </Dialog>
   )
