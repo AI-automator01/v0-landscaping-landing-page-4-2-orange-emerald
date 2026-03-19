@@ -180,7 +180,6 @@ export function CtaModal({
                         <SelectItem
                           key={service}
                           value={service}
-                          {/* Optional: Add a subtle green highlight when hovering over items */}
                           className="py-3 px-4 text-sm font-medium focus:bg-[#064e3b] focus:text-white cursor-pointer transition-colors"
                         >
                           {service}
