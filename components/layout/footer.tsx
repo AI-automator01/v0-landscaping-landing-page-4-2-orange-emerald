@@ -1,4 +1,4 @@
-import { Leaf, MapPin, Phone, Mail } from "lucide-react"
+import { Leaf, MapPin, Phone, Mail, Globe } from "lucide-react"
 import { businessConfig } from "@/lib/config"
 
 const quickLinks = [
@@ -78,6 +78,10 @@ export function Footer() {
               <div className="flex items-center gap-3 text-sm text-white/50">
                 <Mail className="h-4 w-4 shrink-0 text-white/80" />
                 <span>{businessConfig.email}</span>
+              </div>
+              <div className="flex items-start gap-3 text-sm text-white/50">
+                <Globe className="h-4 w-4 shrink-0 mt-0.5 text-white/80" />
+                <span>Serving Port of Spain, Maraval, Westmoorings, San Fernando &amp; Tobago</span>
               </div>
             </div>
           </div>

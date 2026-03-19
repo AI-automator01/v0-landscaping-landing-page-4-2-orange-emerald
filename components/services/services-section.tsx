@@ -142,7 +142,7 @@ export function ServicesSection({ onOpenModal }: { onOpenModal: () => void }) {
         {/* Section Header */}
         <div className="mx-auto max-w-2xl text-center mb-16 lg:mb-20">
           <p className="text-xs font-black uppercase tracking-[0.3em] text-white/60">
-            Our Expertise
+            Our Expertise in Trinidad &amp; Tobago
           </p>
           <h2 className="mt-4 text-balance text-4xl font-black tracking-tighter text-white sm:text-5xl uppercase">
             Landscape Solutions

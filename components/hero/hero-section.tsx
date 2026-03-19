@@ -70,13 +70,13 @@ export function HeroSection({ onOpenModal }: { onOpenModal: () => void }) {
 
             <div className="relative w-full max-w-lg overflow-hidden rounded-[32px] border border-white/20 bg-white/10 p-3 shadow-2xl backdrop-blur-md">
               <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[24px]">
-                <Image src="/images/landscape2.webp" alt="Landscaping" fill className="object-cover" priority />
+                <Image src="/images/landscape2.webp" alt="Luxury estate landscaping by Veridian Custom Landscapes in Trinidad and Tobago" fill className="object-cover" priority />
                 <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/60 to-transparent" />
               </div>
               <div className="mt-4 flex items-center justify-between px-3 pb-2">
                 <div>
-                  <p className="text-xs font-bold text-white uppercase tracking-wider">Modern luxury Greenwich Estate</p>
-                  <p className="text-[11px] text-white/60">Connecticut</p>
+                  <p className="text-xs font-bold text-white uppercase tracking-wider">Modern Luxury Maraval Estate</p>
+                  <p className="text-[11px] text-white/60">Port of Spain, Trinidad</p>
                 </div>
                 <span className="rounded-full bg-white/20 border border-white/30 px-3 py-1 text-[11px] font-bold text-white uppercase">Featured</span>
               </div>

@@ -28,12 +28,12 @@ interface CaseStudy {
 const caseStudies: CaseStudy[] = [
   {
     id: 1,
-    title: "The Whitfield Estate Revival",
-    location: "Greenwich, CT",
+    title: "The Westmoorings Estate Revival",
+    location: "Westmoorings, Trinidad",
     category: "Hardscaping",
-    problem: "Sloped backyard with severe drainage issues causing erosion and flooding near the foundation after every storm.",
+    problem: "Sloped backyard with severe drainage issues causing erosion and flooding near the foundation after every storm season.",
     solution: "Engineered tiered retaining walls with integrated French drains and a naturalistic dry creek bed to redirect water flow.",
-    result: "Increased usable outdoor square footage by 40% and eliminated all drainage complaints. Property value rose by $320K.",
+    result: "Increased usable outdoor square footage by 40% and eliminated all drainage complaints. Property value rose significantly.",
     beforeLabel: "Before",
     afterLabel: "After",
     beforeImage: "/images/case-study-4-before.jpg",
@@ -41,12 +41,12 @@ const caseStudies: CaseStudy[] = [
   },
   {
     id: 2,
-    title: "The Chen Waterfront Oasis",
-    location: "Darien, CT",
+    title: "The Maraval Waterfront Oasis",
+    location: "Maraval, Port of Spain",
     category: "Garden Design",
-    problem: "Barren waterfront lot with salt-damaged soil and no privacy screening from neighboring properties.",
-    solution: "Salt-tolerant specimen plantings, a custom privacy hedge system, and a Japanese-inspired meditation garden with a reflection pool.",
-    result: "Created a fully private, resort-like retreat. Featured in Connecticut Cottages & Gardens magazine. Appraised $500K above purchase price.",
+    problem: "Barren hillside lot with poor tropical soil and no privacy screening from neighboring properties.",
+    solution: "Tropical specimen plantings, a custom privacy hedge system, and a Caribbean-inspired meditation garden with a reflection pool.",
+    result: "Created a fully private, resort-like retreat in the heart of Maraval. Featured in T&T Homes magazine. Appraised well above purchase price.",
     beforeLabel: "Before",
     afterLabel: "After",
     beforeImage: "/images/case-study-2-before.jpg",
@@ -54,12 +54,12 @@ const caseStudies: CaseStudy[] = [
   },
   {
     id: 3,
-    title: "Morrison Ridgefield Transformation",
-    location: "Ridgefield, CT",
+    title: "Diego Martin Estate Transformation",
+    location: "Diego Martin, Trinidad",
     category: "Lighting",
     problem: "A sprawling estate with no landscape lighting, making the property feel unwelcoming and unsafe after dark.",
-    solution: "Full architectural LED lighting system with smart controls: uplighting on specimen trees, path lighting, and moonlighting from canopy oaks.",
-    result: "Reduced outdoor incidents by 100%. Property now hosts evening events year-round. Energy cost: only $18/month with LED efficiency.",
+    solution: "Full architectural LED lighting system with smart controls: uplighting on specimen trees, path lighting, and moonlighting from canopy palms.",
+    result: "Reduced outdoor incidents by 100%. Property now hosts evening events year-round. Energy cost reduced with LED efficiency.",
     beforeLabel: "Before",
     afterLabel: "After",
     beforeImage: "/images/case-study-3-before.jpg",
@@ -67,12 +67,12 @@ const caseStudies: CaseStudy[] = [
   },
   {
     id: 4,
-    title: "The Sterling Hill Slope",
-    location: "New Canaan, CT",
+    title: "The Cascade Hill Slope",
+    location: "Cascade, Port of Spain",
     category: "Hardscaping",
-    problem: "A dangerous, 35-degree backyard incline that was completely unusable and suffered from topsoil washout during heavy rainfall.",
-    solution: "A series of master-crafted granite boulder terraces with wide turf landings and a built-in outdoor fieldstone fireplace.",
-    result: "Converted a 'dead zone' into the estate's primary entertaining hub. Increased property appraisal by 18% within 6 months.",
+    problem: "A dangerous, steep backyard incline completely unusable and suffering from topsoil washout during Trinidad's heavy rainy season.",
+    solution: "A series of master-crafted stone terraces with wide turf landings and a built-in outdoor tropical firepit entertaining area.",
+    result: "Converted a dead zone into the estate's primary entertaining hub. Increased property appraisal by 18% within 6 months.",
     beforeLabel: "Before",
     afterLabel: "After",
     beforeImage: "/images/case-study-1-before.jpg",
@@ -93,9 +93,9 @@ function BeforeAfterSlider({ beforeImage, afterImage, beforeLabel, afterLabel }:
   return (
     <div className="relative w-full overflow-hidden bg-muted group/slider">
       <div className="relative aspect-video w-full">
-        <Image src={beforeImage} alt={beforeLabel} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
+        <Image src={beforeImage} alt={`Before: ${beforeLabel} — Veridian landscaping project in Trinidad and Tobago`} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
         <div className="absolute inset-0 overflow-hidden" style={{ clipPath: `inset(0 0 0 ${100 - sliderPosition}%)` }}>
-          <Image src={afterImage} alt={afterLabel} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
+          <Image src={afterImage} alt={`After: ${afterLabel} — Veridian landscaping transformation in Trinidad and Tobago`} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
         </div>
         <div className="absolute inset-y-0 flex w-[4px] items-center justify-center bg-white z-20" style={{ left: `${sliderPosition}%`, transform: "translateX(-50%)" }}>
           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white shadow-2xl transition-transform duration-200 group-hover/slider:scale-110">

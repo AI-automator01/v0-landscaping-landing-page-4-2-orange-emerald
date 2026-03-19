@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Block any future admin or private routes
+Disallow: /api/
+
+Sitemap: https://www.veridian.com/sitemap.xml

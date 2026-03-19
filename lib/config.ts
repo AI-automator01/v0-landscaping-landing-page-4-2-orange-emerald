@@ -3,16 +3,29 @@ export const businessConfig = {
   fullName: "Veridian Custom Landscapes",
   tagline: "Professional Gardening, Landscaping & Maintenance",
   description:
-    "Premium landscape design for discerning homeowners. Transforming outdoor spaces into living masterpieces since 2009.",
+    "Premium landscape design for discerning homeowners in Trinidad and Tobago. Transforming outdoor spaces into living masterpieces since 2009.",
   heroDescription:
-    "For over 15 years, Veridian has designed and built extraordinary landscapes for discerning homeowners who expect nothing less than perfection.",
-  phone: "+1 212-212-2376",
-  phoneDisplay: "+1 212-212-2376",
+    "For over 15 years, Veridian has designed and built extraordinary landscapes for discerning homeowners across Trinidad and Tobago who expect nothing less than perfection.",
+  phone: "+1 868-212-2376",
+  phoneDisplay: "+1 868-212-2376",
   email: "Contact@veridian.com",
-  address: "Greenwich, Connecticut",
+  address: "Port of Spain, Trinidad and Tobago",
+  addressShort: "Port of Spain, T&T",
+  region: "Trinidad and Tobago",
+  country: "TT",
   hours: "Mon – Fri: 9:00 – 17:00",
   founded: 2009,
   projectsCompleted: 142,
+  serviceAreas: [
+    "Port of Spain",
+    "San Fernando",
+    "Maraval",
+    "Westmoorings",
+    "Cascade",
+    "Diego Martin",
+    "Tobago",
+    "Chaguanas",
+  ],
   social: {
     facebook: "#",
     instagram: "#",
@@ -27,6 +40,5 @@ export const businessConfig = {
     "Power Washing",
     "Seasonal Maintenance",
     "Water Features",
-
   ],
 } as const
