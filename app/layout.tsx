@@ -12,7 +12,7 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: 'Veridian Custom Landscapes | Premium Estate Design & Landscaping',
   description:
-    'Transform your outdoor space with Veridian Custom Landscapes. Award-winning luxury landscape design for premium estates. 15+ years of expertise, 142+ estates transformed.',
+    'Transform your outdoor space with Veridian Custom Landscapes. Award-winning luxury landscape design for premium estates in Trinidad and Tobago. 15+ years of expertise, 142+ estates transformed.',
   keywords: [
     'luxury landscaping',
     'estate design',
