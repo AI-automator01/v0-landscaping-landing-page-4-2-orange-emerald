@@ -6,6 +6,7 @@ import { useFadeIn } from "@/hooks/use-fade-in"
 import { ArrowRight, Award, Shield } from "lucide-react"
 import { ReviewBadge } from "./review-badge"
 import { businessConfig } from "@/lib/config"
+import { motion } from "framer-motion"
 
 export function HeroSection({ onOpenModal }: { onOpenModal: () => void }) {
   const { ref, isVisible } = useFadeIn()
@@ -27,9 +28,16 @@ export function HeroSection({ onOpenModal }: { onOpenModal: () => void }) {
 
             {/* UPDATED: Color change applied to 'Our Soil.' */}
             <h1 className="text-balance text-4xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl uppercase">
-              Your Vision, <span className="text-[#50C878] drop-shadow-[0_2px_10px_rgba(6,78,59,0.2)]">
+              Your Vision,
+              <motion.span
+                initial={{ opacity: 0, filter: "blur(12px)", y: 5 }}
+                animate={isVisible ? { opacity: 1, filter: "blur(0px)", y: 0 } : {}}
+                transition={{ delay: 0.8, duration: 1.2, ease: "easeOut" }}
+                className="inline-block text-[#064e3b]"
+              >
                 Our Soil.
-              </span> <br />
+              </motion.span>
+              <br />
               Bespoke Outdoor Living.
             </h1>
 
