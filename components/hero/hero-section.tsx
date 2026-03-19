@@ -33,7 +33,7 @@ export function HeroSection({ onOpenModal }: { onOpenModal: () => void }) {
                 initial={{ opacity: 0, filter: "blur(12px)", y: 5 }}
                 animate={isVisible ? { opacity: 1, filter: "blur(0px)", y: 0 } : {}}
                 transition={{ delay: 0.8, duration: 1.2, ease: "easeOut" }}
-                className="inline-block text-[#3d2b1f]"
+                className="inline-block text-[#4a3728]"
               >
                 Our Soil.
               </motion.span>
