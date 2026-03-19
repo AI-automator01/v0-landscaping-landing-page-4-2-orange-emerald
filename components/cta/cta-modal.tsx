@@ -127,7 +127,7 @@ export function CtaModal({
                     required
                     value={formData.name}
                     onChange={(e) => handleChange("name", e.target.value)}
-                    className="rounded-xl border-veridian-green/12 bg-veridian-sage/50"
+                    className="rounded-xl border-veridian-green/90 bg-veridian-sage/50"
                   />
                 </div>
 
@@ -142,7 +142,7 @@ export function CtaModal({
                     required
                     value={formData.email}
                     onChange={(e) => handleChange("email", e.target.value)}
-                    className="rounded-xl border-veridian-green/12 bg-veridian-sage/50"
+                    className="rounded-xl border-veridian-green/90 bg-veridian-sage/50"
                   />
                 </div>
 
@@ -157,7 +157,7 @@ export function CtaModal({
                     required
                     value={formData.phone}
                     onChange={(e) => handleChange("phone", e.target.value)}
-                    className="rounded-xl border-veridian-green/12 bg-veridian-sage/50"
+                    className="rounded-xl border-veridian-green/90 bg-veridian-sage/50"
                   />
                 </div>
 
@@ -169,13 +169,18 @@ export function CtaModal({
                     value={formData.service}
                     onValueChange={(value) => handleChange("service", value)}
                   >
-                    <SelectTrigger className="w-full rounded-xl border-veridian-green/12 bg-veridian-sage/50">
+                    <SelectTrigger className="w-full rounded-xl border-veridian-green/90 bg-veridian-sage/50">
                       <SelectValue placeholder="Select a service" />
                     </SelectTrigger>
                     {/* DROP DOWN LOGIC: Targeting businessConfig.services */}
-                    <SelectContent className="rounded-xl bg-white shadow-xl text-black">
+                    <SelectContent className="rounded-2xl border border-white/10 bg-[#0a1a10] text-white shadow-2xl z-[100]">
                       {businessConfig.services.map((service) => (
-                        <SelectItem key={service} value={service}>
+                        <SelectItem
+                          key={service}
+                          value={service}
+                          {/* Optional: Add a subtle green highlight when hovering over items */}
+                          className="py-3 px-4 text-sm font-medium focus:bg-[#064e3b] focus:text-white cursor-pointer transition-colors"
+                        >
                           {service}
                         </SelectItem>
                       ))}
@@ -201,9 +206,7 @@ export function CtaModal({
                   )}
                 </button>
 
-                <p className="mt-2 text-center text-[9px] font-black uppercase tracking-[0.2em] text-white/20">
-                  Your data is secured with Veridian encryption
-                </p>
+
               </form>
             </>
           )}
