@@ -27,7 +27,7 @@ export function HeroSection({ onOpenModal }: { onOpenModal: () => void }) {
 
             {/* UPDATED: Color change applied to 'Our Soil.' */}
             <h1 className="text-balance text-4xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl uppercase">
-              Your Vision, <span className="text-[#064e3b] drop-shadow-[0_2px_10px_rgba(6,78,59,0.2)]">
+              Your Vision, <span className="text-[#50C878] drop-shadow-[0_2px_10px_rgba(6,78,59,0.2)]">
                 Our Soil.
               </span> <br />
               Bespoke Outdoor Living.
