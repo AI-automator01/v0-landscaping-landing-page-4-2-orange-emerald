@@ -186,17 +186,17 @@ export function CtaModal({
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="group mt-2 flex items-center justify-center gap-2 rounded-full bg-veridian-green py-3 text-sm font-semibold text-veridian-cream transition-all hover:bg-veridian-green-light disabled:opacity-70"
+                  className="group mt-4 flex h-16 w-full items-center justify-center gap-3 rounded-full bg-[#11261a] text-[11px] font-black uppercase tracking-[0.4em] text-white border border-white/50 transition-all hover:bg-[#064e3b] hover:border-white/20 hover:shadow-[0_0_30px_rgba(6,78,59,0.3)] active:scale-[0.98] disabled:opacity-50"
                 >
                   {isSubmitting ? (
                     <>
                       <Loader2 className="h-4 w-4 animate-spin" />
-                      Sending...
+                      Processing...
                     </>
                   ) : (
                     <>
                       Request Consultation
-                      <ArrowRight className="h-4 w-4" />
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </>
                   )}
                 </button>
