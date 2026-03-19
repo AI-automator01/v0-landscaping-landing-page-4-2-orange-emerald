@@ -172,6 +172,8 @@ export function CtaModal({
                     <SelectTrigger className="w-full rounded-xl border-veridian-green/90 bg-veridian-sage/50">
                       <SelectValue placeholder="Select a service" />
                     </SelectTrigger>
+
+
                     {/* DROP DOWN LOGIC: Targeting businessConfig.services */}
                     <SelectContent className="rounded-2xl border border-white/10 bg-[#0a1a10] text-white shadow-2xl z-[100]">
                       {businessConfig.services.map((service) => (
@@ -185,7 +187,10 @@ export function CtaModal({
                         </SelectItem>
                       ))}
                     </SelectContent>
+                  </Select>
                 </div>
+
+
 
                 <button
                   type="submit"
